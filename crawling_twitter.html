@@ -368,14 +368,14 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: snscrape in /usr/local/lib/python3.8/dist-packages (0.5.0.20230113)
-Requirement already satisfied: requests[socks] in /usr/local/lib/python3.8/dist-packages (from snscrape) (2.25.1)
 Requirement already satisfied: lxml in /usr/local/lib/python3.8/dist-packages (from snscrape) (4.9.2)
-Requirement already satisfied: filelock in /usr/local/lib/python3.8/dist-packages (from snscrape) (3.9.0)
-Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.8/dist-packages (from snscrape) (4.6.3)
 Requirement already satisfied: pytz in /usr/local/lib/python3.8/dist-packages (from snscrape) (2022.7.1)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (2.10)
-Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (4.0.0)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.8/dist-packages (from snscrape) (4.6.3)
+Requirement already satisfied: filelock in /usr/local/lib/python3.8/dist-packages (from snscrape) (3.9.0)
+Requirement already satisfied: requests[socks] in /usr/local/lib/python3.8/dist-packages (from snscrape) (2.25.1)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (1.24.3)
+Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (4.0.0)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (2.10)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (2022.12.7)
 Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (1.7.1)
 </pre></div>
@@ -392,8 +392,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># maxTweets = 100</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;(aniesbaswedan) until:2023-02-20 since:2022-01-01&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;(aniesbaswedan) until:2023-02-20 since:2022-01-01&quot;</span>
 <span class="n">tweets</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">limit</span> <span class="o">=</span> <span class="mi">500</span>
 
@@ -411,7 +410,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-3-b1f7a6b0ed6b&gt;:12: FutureWarning: content is deprecated, use rawContent instead
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-3-5a1925df6947&gt;:11: FutureWarning: content is deprecated, use rawContent instead
   tweets.append([tweet.date, tweet.user.username, tweet.content, tweet.user.location])
 </pre></div>
 </div>
@@ -462,83 +461,6 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;crawl_twitter2.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Script Author: Martin Beck</span>
-<span class="c1"># Medium Article Follow-Along: https://medium.com/better-programming/how-to-scrape-tweets-with-snscrape-90124ed006af</span>
-
-<span class="c1"># Pip install the command below if you don&#39;t have the development version of snscrape </span>
-<span class="c1"># !pip install git+https://github.com/JustAnotherArchivist/snscrape.git</span>
-
-<span class="c1"># Run the below command if you don&#39;t already have Pandas</span>
-<span class="c1"># !pip install pandas</span>
-
-<span class="c1"># Imports</span>
-<span class="kn">import</span> <span class="nn">snscrape.modules.twitter</span> <span class="k">as</span> <span class="nn">sntwitter</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Below are two ways of scraping using the Python Wrapper.</span>
-<span class="c1"># Comment or uncomment as you need. If you currently run the script as is it will scrape both queries</span>
-<span class="c1"># then output two different csv files.</span>
-
-<span class="c1"># Query by username</span>
-<span class="c1"># Setting variables to be used below</span>
-<span class="n">maxTweets</span> <span class="o">=</span> <span class="mi">100</span>
-
-<span class="c1"># Creating list to append tweet data to</span>
-<span class="n">tweets_list1</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># Using TwitterSearchScraper to scrape data </span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">tweet</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sntwitter</span><span class="o">.</span><span class="n">TwitterSearchScraper</span><span class="p">(</span><span class="s1">&#39;from:jack&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_items</span><span class="p">()):</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="n">maxTweets</span><span class="p">:</span>
-        <span class="k">break</span>
-    <span class="n">tweets_list1</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">tweet</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">])</span>
-
-<span class="c1"># Creating a dataframe from the tweets list above</span>
-<span class="n">tweets_df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tweets_list1</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;Tweet Id&#39;</span><span class="p">,</span> <span class="s1">&#39;Text&#39;</span><span class="p">,</span> <span class="s1">&#39;Username&#39;</span><span class="p">])</span>
-
-<span class="c1"># Display first 5 entries from dataframe</span>
-<span class="c1"># tweets_df1.head()</span>
-
-<span class="c1"># Export dataframe into a CSV</span>
-<span class="n">tweets_df1</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;user-tweets.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-
-<span class="c1"># Query by text search</span>
-<span class="c1"># Setting variables to be used below</span>
-<span class="n">maxTweets</span> <span class="o">=</span> <span class="mi">500</span>
-
-<span class="c1"># Creating list to append tweet data to</span>
-<span class="n">tweets_list2</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># Using TwitterSearchScraper to scrape data and append tweets to list</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">tweet</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sntwitter</span><span class="o">.</span><span class="n">TwitterSearchScraper</span><span class="p">(</span><span class="s1">&#39;its the elephant since:2020-06-01 until:2020-07-31&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_items</span><span class="p">()):</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="n">maxTweets</span><span class="p">:</span>
-        <span class="k">break</span>
-    <span class="n">tweets_list2</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">tweet</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="n">tweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">])</span>
-
-<span class="c1"># Creating a dataframe from the tweets list above</span>
-<span class="n">tweets_df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tweets_list2</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;Tweet Id&#39;</span><span class="p">,</span> <span class="s1">&#39;Text&#39;</span><span class="p">,</span> <span class="s1">&#39;Username&#39;</span><span class="p">])</span>
-
-<span class="c1"># Display first 5 entries from dataframe</span>
-<span class="n">tweets_df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-
-<span class="c1"># Export dataframe into a CSV</span>
-<span class="n">tweets_df2</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">Chendy Tri Wardani</span><span class="se">\\</span><span class="s1">Kuliah</span><span class="se">\\</span><span class="s1">Semester 6</span><span class="se">\\</span><span class="s1">prosaindata</span><span class="se">\\</span><span class="s1">twitter.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-5-468ce372716a&gt;:29: FutureWarning: content is deprecated, use rawContent instead
-  tweets_list1.append([tweet.date, tweet.id, tweet.content, tweet.user.username])
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-5-468ce372716a&gt;:52: FutureWarning: content is deprecated, use rawContent instead
-  tweets_list2.append([tweet.date, tweet.id, tweet.content, tweet.user.username])
 </pre></div>
 </div>
 </div>
