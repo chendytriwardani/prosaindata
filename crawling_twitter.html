@@ -367,17 +367,28 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: snscrape in /usr/local/lib/python3.8/dist-packages (0.5.0.20230113)
-Requirement already satisfied: lxml in /usr/local/lib/python3.8/dist-packages (from snscrape) (4.9.2)
-Requirement already satisfied: pytz in /usr/local/lib/python3.8/dist-packages (from snscrape) (2022.7.1)
+Collecting snscrape
+  Downloading snscrape-0.5.0.20230113-py3-none-any.whl (69 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/69.2 KB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">69.2/69.2 KB</span> <span class=" -Color -Color-Red">6.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: filelock in /usr/local/lib/python3.8/dist-packages (from snscrape) (3.9.0)
 Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.8/dist-packages (from snscrape) (4.6.3)
-Requirement already satisfied: filelock in /usr/local/lib/python3.8/dist-packages (from snscrape) (3.9.0)
+Requirement already satisfied: lxml in /usr/local/lib/python3.8/dist-packages (from snscrape) (4.9.2)
 Requirement already satisfied: requests[socks] in /usr/local/lib/python3.8/dist-packages (from snscrape) (2.25.1)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (1.24.3)
+Requirement already satisfied: pytz in /usr/local/lib/python3.8/dist-packages (from snscrape) (2022.7.1)
 Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (4.0.0)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (2.10)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (2022.12.7)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (2.10)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (1.24.3)
 Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/python3.8/dist-packages (from requests[socks]-&gt;snscrape) (1.7.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: snscrape
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed snscrape-0.5.0.20230113
 </pre></div>
 </div>
 </div>
@@ -396,8 +407,6 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 <span class="n">tweets</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">limit</span> <span class="o">=</span> <span class="mi">500</span>
 
-
-<span class="n">tweets_list1</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">sntwitter</span><span class="o">.</span><span class="n">TwitterSearchScraper</span><span class="p">(</span><span class="n">query</span><span class="p">)</span><span class="o">.</span><span class="n">get_items</span><span class="p">():</span>
   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tweets</span><span class="p">)</span><span class="o">==</span><span class="n">limit</span><span class="p">:</span>
     <span class="k">break</span>
@@ -410,7 +419,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-3-5a1925df6947&gt;:11: FutureWarning: content is deprecated, use rawContent instead
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-3-36fdacbd7b23&gt;:9: FutureWarning: content is deprecated, use rawContent instead
   tweets.append([tweet.date, tweet.user.username, tweet.content, tweet.user.location])
 </pre></div>
 </div>
@@ -421,37 +430,24 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 3   2023-02-19 23:58:30+00:00         chaduque   
 4   2023-02-19 23:58:16+00:00  sangkalacambang   
 ..                        ...              ...   
-495 2023-02-19 17:10:56+00:00        devrylasi   
-496 2023-02-19 17:10:37+00:00    budifebricool   
-497 2023-02-19 17:10:32+00:00    AncolMangkrak   
-498 2023-02-19 17:10:21+00:00       Sigmahalim   
-499 2023-02-19 17:10:11+00:00       MajinSamri   
+495 2023-02-19 17:08:39+00:00     garis_ralucu   
+496 2023-02-19 17:08:33+00:00  damarjati_dimas   
+497 2023-02-19 17:08:32+00:00      dimaspram96   
+498 2023-02-19 17:08:24+00:00       ardi_tama1   
+499 2023-02-19 17:07:28+00:00       Sigmahalim   
 
-                                                 Tweet  \
-0    @NasDem @aniesbaswedan Sepertinya akan banyak ...   
-1    @NasDem @adityawilly @aniesbaswedan Ga percaya...   
-2    @IrsanHarahap7 @MulyadiSaediman @aniesbaswedan...   
-3    @aniesbaswedan Nggak percuma waktu di DKI kasi...   
-4    @ewondoanx99 @aniesbaswedan Anjing anjing AS d...   
-..                                                 ...   
-495  @ondel2wan_abud @aniesbaswedan Pslagi ada gela...   
-496  @marlina_idha @aniesbaswedan Moment haram jadi...   
-497  @Sigmahalim @aniesbaswedan @NasDem @PDemokrat ...   
-498  @damarjati_dimas @TeguhSudarisman @babesije @a...   
-499  @dimaspram96 @Sukardi2017 @aniesbaswedan Ikuta...   
-
-                          lokasi  
-0              Tangerang, Banten  
-1                                 
-2                       Bandung   
-3                                 
-4             Makasar, Indonesia  
-..                           ...  
-495                    Indonesia  
-496                               
-497  Kalimantan Timur, Indonesia  
-498                               
-499                               
+                                                 Tweet              lokasi  
+0    @NasDem @aniesbaswedan Sepertinya akan banyak ...   Tangerang, Banten  
+1    @NasDem @adityawilly @aniesbaswedan Ga percaya...                      
+2    @IrsanHarahap7 @MulyadiSaediman @aniesbaswedan...            Bandung   
+3    @aniesbaswedan Nggak percuma waktu di DKI kasi...                      
+4    @ewondoanx99 @aniesbaswedan Anjing anjing AS d...  Makasar, Indonesia  
+..                                                 ...                 ...  
+495  @NasDem @aniesbaswedan Setujuuu. Mari kita ram...                      
+496  @Sigmahalim @TeguhSudarisman @babesije @aniesb...     Zittau, Germany  
+497  @MajinSamri @Sukardi2017 @aniesbaswedan Jelas ...                      
+498  @MuhammadSaewadd @aniesbaswedan Satttt Bandung...                      
+499  @damarjati_dimas @TeguhSudarisman @babesije @a...                      
 
 [500 rows x 4 columns]
 </pre></div>

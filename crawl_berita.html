@@ -1,0 +1,991 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEB SCRAPPING &#8212; My sample book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">My sample book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="markdown-notebooks.html">
+   Notebooks with MyST Markdown
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/crawl_berita.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcrawl_berita.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/crawl_berita.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>WEB SCRAPPING</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="web-scrapping">
+<h1>WEB SCRAPPING<a class="headerlink" href="#web-scrapping" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install requests
+<span class="o">!</span>pip install beautifulsoup4
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: requests in /usr/local/lib/python3.8/dist-packages (2.25.1)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.8/dist-packages (from requests) (2022.12.7)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.8/dist-packages (from requests) (2.10)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests) (1.24.3)
+Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /usr/local/lib/python3.8/dist-packages (from requests) (4.0.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.8/dist-packages (4.6.3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datas</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://news.detik.com/indeks/&#39;</span>
+<span class="n">header</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;user-agent&#39;</span><span class="p">:</span><span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36&#39;</span>
+<span class="p">}</span>
+
+
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+  <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">page</span><span class="p">),</span><span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+  <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+  <span class="n">berita</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;article&#39;</span><span class="p">,</span> <span class="s1">&#39;list-content__item&#39;</span><span class="p">)</span>
+  <span class="c1"># print(berita)</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">berita</span><span class="p">:</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;media__link&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+    <span class="n">judul2</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">,</span><span class="s1">&#39;media__title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">judul2</span><span class="p">)</span>
+    <span class="n">req2</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+    <span class="n">soup2</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req2</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">judul</span> <span class="o">=</span> <span class="n">soup2</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;detail__title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">isi</span> <span class="o">=</span> <span class="n">soup2</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span><span class="s1">&#39;detail__body-text itp_bodycontent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+      <span class="n">isi</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">isi</span><span class="p">)</span>
+    <span class="n">datas</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">judul</span><span class="p">,</span> <span class="n">isi</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mahfud Md Gelar Pertemuan dengan Sejumlah Eks Menteri, Ada Apa?
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Menteri Koordinator bidang Politik, Hukum dan Keamanan (Menko Polhukam) Mahfud Md mengadakan pertemuan dengan sejumlah mantan menteri, rektor universitas dan tokoh agama. Para tokoh yang hadir antara lain Mantan Menteri BUMN Dahlan Iskan, Mantan Menko Bidang Kesejahteraan Rakyat Alwi Shihab, Mantan Menteri Tenaga Kerja dan Transmigrasi Al Hilal Hamdi, Mantan Menteri Agama Lukman Hakim Saifuddin serta Mantan Menristek Muhammad AS Hikam.Acara pertemuan digelar di Kantor Kemenko Polhukam, Jalan Medan Merdeka Selatan, Jakarta Pusat, Selasa (21/2/2023). Rektor yang menghadiri pertemuan itu yakni Rektor Universitas Islam Internasional Indonesia (UIII) dan Rektor Universitas Al-Azhar Asep Saefuddin.&quot;Topik tadi seperti anda tahu banyak, seperti masalah situasi politik, yang supaya pemerintah jangan melayani pembicaraan mengenai penundaan pemilu, ndak usah ditanggapi,&quot; kata Mahfud Md kepada wartawan, Selasa (21/2/2023).
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Baca juga: Mahfud Sebut Papua Lebih Tenang Usai Lukas Enembe Ditangkap: Tak Ada DemoMahfud Md menekankan negara tunduk kepada konstitusi. Sehingga dia memandang pemerintah semestinya tak perlu menanggapi isu penundaan pemilu.&quot;Kalau yang lain bicara lain ya susah sih kita ngelarang nya. Ini negara konstitusional. Tapi ya kita tadi diberi tahu sudahlah ndak usah ditanggapi. Pokoknya pemilu jalan. Oke, kita nyatakan begitu. Itu tadi,&quot; sambungnya.Selain itu, pertemuan siang ini juga menyinggung soal penyelesaian nonyudisial pelanggaran HAM berat di masa lalu (PPHAM). Sejauh ini, pihaknya tengah menyiapkan langkah komprehensif.&quot;Tadi memang ada yang tanyakan follow up, prosesnya ada beberapa. Kok PPHAM seperti diumumkan kok hilang? Nggak. Kita masih akan menyiapkan langkah-langkahnya. Tadi ada beberapa pertanyaan gitu, dari beberapa orang, kita teruskan. Sudah kita jelaskan,&quot; terang Mahfud Md.Baca juga: Mahfud Sebut KKB yang Sandera Pilot Susi Air Sudah Dikepung(taa/aud)mahfud md menko polhukam mahfud md pemilu pemilu 2024 ppham 
+Ramadan 2023 Jatuh pada Tanggal Berapa? Simak Informasinya
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Ramadan 2023 jatuh pada tanggal berapa? PP Muhammadiyah telah menetapkan awal puasa tahun 2023. Namun, belum ada rilisan resmi dari pemerintah terkait jadwal Ramadan 2023.Meskipun demikian, pemerintah telah mengumumkan tanggal Lebaran 2023 yang tercantum dalam SKB 3 Menteri terbaru. Berikut serba-serbi penetapan Ramadan 2023.Baca juga: Libur Lebaran 2023 Berapa Hari? Simak Aturan SKB 3 MenteriRamadan 2023 Jatuh pada Tanggal Berapa? Ini Versi MuhammadiyahBerdasarkan hasil hisab Ramadan, Syawal, dan Zulhijah 1444 Hijiriah, Ramadan 2023 versi Muhammadiyah jatuh pada tanggal 23 Maret 2023. Kemudian, Idul Fitri 2023 menurut PP Muhammadiyah adalah tanggal 21 April 2023.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  &quot;PP Muhammadiyah menetapkan 1 Ramadhan 1444 H jatuh pada hari Kamis Pon, 23 Maret 2023; kedua, 1 Syawal jatuh pada hari Jumat Pahing, 21 April 2023; ketiga, 1 Zulhijah 1444 H jatuh pada hari Senin Legi, 19 Juni 2023,&quot; kata Sekretaris PP Muhammadiyah Muhammad Sayuti, saat membacakan maklumat Pimpinan PP Muhammadiyah dalam konferensi pers yang disiarkan di YouTube Muhammadiyah Channel, Senin (6/2/2023).Ramadan 2023 jatuh pada tanggal berapa? PP Muhammadiyah telah menetapkan awal puasa 2023. Namun, belum ada rilisan resmi dari pemerintah terkait Ramadan 2023. (Foto: HaiBunda/ Annisa Shofia)Jadwal Ramadan 2023 Versi PemerintahPemerintah Indonesia belum mengumumkan secara resmi penetapan Ramadan 2023. Hal tersebut dikarenakan pemerintah masih menunggu hasil sidang isbat.Menurut Kamus Besar Bahasa Indonesia (KBBI), isbat artinya penetapan dan penentuan. Adapun sidang isbat adalah sidang yang dilakukan untuk menetapkan atau menentukan awal bulan dalam kalender Hijriyah.Baca juga: Apakah Tiket Kereta Lebaran 2023 Sudah Dibuka? Cek InformasinyaKapan Lebaran 2023? Catat Tanggal Libur dan Cuti BersamanyaBerdasarkan SKB 3 Menteri tentang Hari Libur Nasional dan Cuti Bersama, lebaran 2023 jatuh pada tanggal 22-23 April 2023. Sementara itu, cuti bersama Lebaran 2023 dimulai dari:Jumat, 21 April 2023Senin, 24 April 2023Selasa, 25 April 2023Rabu, 26 April 2023.Daftar Hari Libur Nasional dan Cuti Bersama 2023Pemerintah menetapkan 15 hari libur nasional dan delapan hari cuti bersama selama tahun 2023. Dilansir SKB 3 Menteri terbaru, berikut daftarnya.Daftar Hari Libur Nasional 2023Minggu, 1 Januari: Tahun Baru MasehiMinggu, 22 Januari: Tahun Baru ImlekRabu, 18 Februari: Isra Mi&#39;rajRabu, 22 Maret: Hari Suci NyepiJumat, 7 April: Wafatnya Isa AlmasihSabtu-Minggu, 22-23 April: Hari Raya Idul FitriSenin, 1 Mei: Hari BuruhKamis, 18 Mei: Kenaikan Isa AlmasihKamis, 1 Juni: Hari Lahir PancasilaMinggu, 4 Juni: Hari WaisakKamis, 29 Juni: Idul AdhaRabu, 19 Juli: Tahun Baru IslamKamis, 17 Agustus: Hari KemerdekaanKamis, 28 September: Maulid Nabi Muhammad SAWSenin, 25 Desember: Hari Natal.Daftar Cuti Bersama 2023Senin (23 Januari): Tahun Baru Imlek 2574 KongziliKamis (23 Maret): Hari Suci Nyepi Tahun Baru Saka 1945Jumat, Senin, Selasa, Rabu (21, 24, 25, 26 April): Hari Raya Idul Fitri 1444 Hijriah/Libur Lebaran 2023Jumat (2 Juni): Hari Raya WaisakSelasa (26 Desember): Hari Raya Natal.Demikian informasi serba-serbi Ramadan 2023. Siap menyambut puasa?(kny/imk)ramadan 2023 jatuh pada tanggal berapa ramadan 2023 tanggal berapa puasa 2023 tanggal berapa puasa 2023 mulai kapan awal ramadan 2023 awal puasa 2023 kapan awal puasa 2023 puasa 2023 ramadan 2023 kapan awal ramadan 2023 
+Penyandera Tuntut Uang Tebusan untuk Bebaskan Profesor Australia di Papua Nugini
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Polisi Papua Nugini mengatakan kelompok penculik seorang profesor asal Australia dan tiga perempuan peneliti tidak merencanakan penyanderaan.Polisi Papua Nugini mengatakan penculiknya merupakan kelompok kriminal yang kebetulan melihat para peneliti tersebut.Tim akademis ini sedang melakukan kegiatan studi lapangan di kawasan terpencil di dataran tinggi dekat Gunung Bosavi, kawasan perbatasan antara provinsi Hela dan Southern Highlands.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Mereka terlibat dalam sebuah proyek dengan ditemani para pemandu lokal.Pemandu mereka juga awalnya diculik, sebelum kemudian dibebaskan.Namun ABC mendapat laporan jika salah satu pemandu lokal memilih untuk tetap bersama kelompok peneliti, meski sudah ditawari bebas.David Manning, kepala kepolisian Papua Nugini mengatakan pasukan keamanan dengan keahlian khusus akan diturunkan untuk membebaskan para sandera, dengan menggunakan semua cara yang diperlukan termasuk tindakan mematikan.Ia mendesak kelompok kriminal tersebut membebaskan sandera, serta mengatakan &quot;kegagalan mematuhi perintah dan menentang penangkapan bisa membahayakan hidup mereka sendiri.&quot;Polisi memperkirakan kelompok yang menyandera empat peneliti ini berasal dari Komo di provinsi Hela.Mereka diperkirakan sedang kembali ke desa Kamusi ketika melihat para peneliti.&quot;Mereka hanya mengambil kesempatan dan tidak merencanakan melakukannya dan sekarang meminta tebusan uang bagi pembebasan sandera,&quot; kata David.Profesor antropologi yang diculik tersebut diketahui bekerja di sebuah universitas di Australia dan memiliki kewarganegaraan Selandia Baru.Fokus penelitiannya adalah bidang arkeologi, termasuk sudah melakukan penelitian sebelumnya di Papua Nugini.Dia ditahan bersama tiga peneliti perempuan asal Papua Nugini, yakni seorang koordinator program dan dua lulusan dari universitas Papua Nugini, dan salah seorang di antaranya bekerja di museum.Sempat ada kekhawatiran jika ada warga asing lain yang disandera, termasuk peneliti asal Australia lainnya, tapi diketahui peneliti tersebut sedang berada di rumahnya di Australia.Sandera berpindah-pindah lokasiPolisi sudah bekerja sama dengan misionaris setempat, yang berperan menjadi perantara saat mencoba membebaskan para sandera.Misionaris sudah berhasil berbicara dengan profesor lewat telepon satelit dan mencoba membantu perundingan.Menurut Asisten Komisioner Polisi untuk kawasan barat, John Kale, kelompok penculik bersenjata ini memindahkan sandera dari satu lokasi ke lokasi lainnya.Dia mengatakan operasi yang dilakukan sangat berhati-hati.&quot;Polisi berencana melakukan operasi. Namun karena misionaris mengadakan kontak dengan sandera atau dengan penyandera, kami tidak mau membuat situasi memanas,&quot; katanya kepada ABC.Ia juga menyampaikan kekhawatiran jika para sandera akan dipindahkan lagi, atau bahkan dilukai.Seorang pengusaha dari kawasan setempat mengatakan berita mengenai penculikan segera menyebar di kalangan warga, yang juga bersedia untuk membantu meski mengalami kesulitan logistik.&quot;Kami tinggal di desa-desa yang tersebar di kawasan hutan yang lebat, sehingga kami tidak bisa membantu menemukan mereka, dan juga tidak memiliki jaringan untuk mengontak dan mengetahui identitas mereka,&quot; kata Andrew Awabi dari Koperasi Pertanian Gunung Bosavi.&quot;Berita penculikan sudah menyebar, jadi sekarang warga dari masing-masing desa mencoba masuk ke hutan untuk melacak dan menemukan mereka.&quot;Perdana Menteri Papua Nugini James Marape mengatakan penduduk desa yang tidak terlibat dalam penculikan sudah membantu melakukan perundingan dan juga memberikan informasi.Jarang sekali penculikan meminta uang tebusan terjadi di Papua Nugini dan PM Marape mengatakan ini menjadi &quot;sebuah tren baru dalam aktivitas kriminal yang tidak akan ditoleransi.&quot;&quot;Saya kira ini adalah pertama kalinya uang tebusan dijadikan syarat dalam penculikan dan kami menanggapinya dengan serius,&quot; katanya.&quot;Kami tidak ingin ini menjadi preseden ke depannya, dan kami sekarang bekerja sama dengan semua pihak.&quot;Warga Australia diculik tahun laluPenculikan di Papua Nugini sudah terjadi di masa lalu, namun kebanyakan ada hubungannya dengan proyek sumber alam atau industri di kawasan regional.Akhir tahun lalu, seorang warga Australia dan tiga pekerja asal Papua Nugini yang bekerja untuk Santos, di sebuah kilang minyak terpencil di provinsi Hela, diculik pemilik lahan setempat, menurut laporan media berdasarkan keterangan di pengadilan.Para pekerja tersebut dilaporkan ditahan selama beberapa hari setelah diculik oleh warga yang bersenjatakan pisau dan senjata api buatan sendiri.Sandera kemudian dibebaskan, namun kejadian tersebut tidak menjadi bahan pemberitaan saat itu.Saat ini tiga pria sedang diadili terkait penculikan.Di pengadilan mereka mengatakan melakukan penculikan karena belum mendapat bayaran royalti dari pemerintah Papua Nugini untuk sebuah proyek minyak.&quot;Kita bekerja erat dengan ototitas Papua Nugini dan Australia, juga para kontraktor untuk dapat mencapai sebuah resolusi positif,&quot; demikian pernyataan Santos kepada ABC.Artikel ini diproduksi oleh Sastra Wijaya dari ABC News(ita/ita)abc australia papua nugini profesor australia 
+5 Berita Terpopuler Internasional Hari Ini
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta -  Kunjungan mendadak Presiden Amerika Serikat (AS) Joe Biden ke Ukraina penuh kerahasiaan. Namun ternyata, para pejabat Rusia telah diberitahu soal kunjungan itu oleh otoritas AS beberapa jam sebelumnya.Seperti dilansir Reuters, Selasa (21/2/2023), penasihat keamanan nasional AS Jake Sullivan, yang mendampingi Biden dalam kunjungan ke Kiev, mengungkapkan bahwa para pejabat AS telah memberitahu para pejabat Rusia bahwa Biden akan melakukan perjalanan ke Kiev.&quot;Kami melakukannya beberapa jam sebelum keberangkatannya (Biden-red) untuk tujuan dekonflik (upaya menghindari konflik),&quot; ujar Sullivan kepada wartawan, tanpa memberikan penjelasan lebih lanjut.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Selain berita tersebut, berikut ini berita-berita internasional yang menarik perhatian pembaca detikcom, hari ini, Selasa (21/2/2023):- AS Kesal Dewan Keamanan PBB Bungkam soal Peluncuran Rudal KorutAmerika Serikat (AS) mengecam kurangnya tindakan dari Dewan Keamanan Perserikatan Bangsa-bangsa (PBB) terhadap peluncuran rudal terbaru oleh Korea Utara (Korut) beberapa waktu lalu. Washington menuduh, tanpa menyebut langsung, China dan Rusia telah &#39;memaksa&#39; Dewan Keamanan PBB &#39;untuk diam&#39;.Seperti dilansir AFP, Selasa (21/2/2023), Pyongyang meluncurkan rentetan rudal dalam uji coba yang dilakukan sepanjang tahun 2022, yang menempatkan situasi keamanan kawasan Asia Timur di ujung tanduk.Pada Senin (20/2) waktu setempat, Korut meluncurkan dua rudal balistik selang 48 jam setelah menguji coba sebuah rudal balistik antarbenua (ICBM).Baca juga: AS Kesal Dewan Keamanan PBB Bungkam soal Peluncuran Rudal Korut- Zelensky Ingatkan Perang Dunia III Jika China Dukung Rusia di Ukraina!Presiden Ukraina Volodymyr Zelensky mengingatkan bahwa perang dunia bisa terjadi jika China mendukung Rusia dalam perang yang terus berlangsung di Ukraina. Zelensky mengharapkan Beijing tetap mempertahankan sikap pragmatisnya.Seperti dilansir CNN, Selasa (21/2/2023), peringatan itu disampaikan Zelensky dalam wawancara dengan surat kabar terkemuka Italia Corriere della Sera, yang dipublikasikan Minggu (19/2) waktu setempat.&quot;Harapan saya adalah bahwa Beijing akan mempertahankan sikap pragmatisnya, jika tidak demikian, Anda mengambil risiko Perang Dunia III, saya pikir mereka sangat menyadarinya,&quot; ucap Zelensky saat ditanya apakah Ukraina berpikir jika China akan mengirimkan pasokan senjata kepada Rusia.Baca juga: Zelensky Ingatkan Perang Dunia III Jika China Dukung Rusia di Ukraina!- Biden Tiba di Polandia Usai Kunjungan Mendadak ke UkrainaPresiden Amerika Serikat Joe Biden tiba di Polandia pada hari Senin (20/2) waktu setempat untuk memperkuat dukungan AS dan NATO untuk Ukraina. Kunjungan ini dilakukan Biden setelah perjalanan mendadak Biden ke Ukraina, menjelang peringatan satu tahun invasi Rusia ke negara itu.Halaman                1                            2                        Selanjutnya joe biden joe biden ke ukraina biden ke ukraina amerika serikat rusia ukraina berita terpopuler internasional 
+Driver Ojol Pelaku Tabrak Lari dan Buang Korban Dipecat GoJek!
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Depok - Manajemen Gojek Indonesia buka suara terkait Ery Riansyah Arifin (26), driver Gojek, pelaku tabrak lari dan buang korban di Jalan Raya Sawangan, Kota Depok, Jawa Barat. Ery dipecat kemitraannya oleh Gojek.&quot;Meski peristiwa terjadi saat pelaku tidak sedang menjalankan order, kami tetap memberikan sanksi berupa Putus Mitra (PM) dan pelaku telah diamankan oleh pihak berwajib,&quot; kata Senior Vice President Corporate Affairs Gojek Rubi W Purnomo saat dihubungi detikcom, Selasa (21/2/2023).Rubi menyampaikan dukacita yang mendalam kepada pihak keluarga korban atas kejadian nahas yang dilakukan mitranya. Pihaknya menyesalkan dan mengutuk tindak kriminal yang dilakukan oleh driver Gojek tersebut.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  &quot;Kami menyampaikan dukacita yang mendalam kepada pihak keluarga korban kecelakaan yang melibatkan salah satu mitra kami. Kami menyesalkan dan mengutuk tindak kriminal yang dilakukan oleh oknum mitra driver Gojek tersebut,&quot; jelas Rubi,&quot; ungkap Rubi.Baca juga: Ngaku Tak Punya Uang Biayai Korban Tabrak Lari, Ery Malah Modifikasi MotorRubi menyampaikan kejadian tersebut telah mencoreng pelayanan baik jutaan mitra driver Gojek lainnya. Gojek pun, kata Rubi, siap membantu pihak berwajib sesuai dengan proses hukum yang berlaku.&quot;Kejadian ini sekaligus telah mencoreng pelayanan baik jutaan mitra driver Gojek lainnya. Gojek siap membantu pihak berwajib sesuai dengan proses hukum yang berlaku,&quot; jelas Rubi.Sebelumnya diberitakan, polisi menetapkan Ery Riansyah Arifin (26) sebagai tersangka karena membuang korban yang ditabraknya di Jalan Raya Sawangan, Kota Depok, Jawa Barat (Jabar). Ery diketahui bekerja sebagai ojek online (ojol).&quot;(Pekerjaan tersangka) pengemudi ojek online,&quot; kata Kapolres Metro Depok Kombes Ahmad Fuady dalam jumpa pers di Mapolresta Depok, Sabtu (18/2/2023).Sebelum ditangkap, Ery sempat berpindah-pindah tempat.Baca juga: Pria Tabrak Lari dan Buang Korban di Depok Dinanti Perkara LainDia kemudian ditangkap di salah satu perumahan di kawasan Sawangan, Kota Depok, pada Jumat (17/2) siang.&quot;Karena pelaku berpindah tempat, saat dideteksi oleh tim gabungan di salah satu tempat di perumahan daerah Sawangan,&quot; ucapnya.Polisi belum menjelaskan alasan Ery berpindah-pindah tempat. Termasuk apakah karena kasusnya sudah ramai diperbincangkan.&quot;Kami belum bisa menyampaikan sampai sejauh itu, tapi yang jelas pelaku sudah kami ikuti sampai di rumahnya, tapi pelaku tidak kembali dengan alasan masih ada order,&quot; tuturnya.Baca juga: Pria Tabrak Lari dan Buang Korban di Depok Dinanti Perkara LainTonton juga Video: 22 Adegan Diperagakan di Rekonstruksi Ulang Tabrak Lari Mahasiswi Cianjur[Gambas:Video 20detik](mea/mea)pelaku tabrak lari tabrak lari tabrak lari di depok korban tabrak lari dibuang korban tabrak lari dibuang di depok gojek jabodetabek 
+22 Adegan Diperagakan di Rekonstruksi Ulang Tabrak Lari Mahasiswi Cianjur
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wanita Dibunuh Suami Siri di Jaktim, Ini 5 Hal yang Diketahui
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Seorang wanita dibunuh suami siri di Jakarta timur (Jaktim). Wanita berinisial F (38) dibunuh di penginapan di kawasan Pinang Ranti, Kecamatan Makasar, Jaktim oleh suami sirinya berinisial S (60). Kini polisi berhasil menangkap pelaku dan tengah menjalani pemeriksaan lebih alnjut.Berikut sejumlah hal yang diketahui sejauh ini terkait kasus wanita dibunuh suami siri di Jaktim:Baca juga: Kesaksian Ngeri Warga Saat Wanita Dibunuh Suami Siri di Penginapan JaktimAwal Mula Kasus Wanita Dibunuh Suami SiriAwal kasus wanita dibunuh suami siri mencuat bermula dari penemuan korban wanita berinisial F (38) di sebuah penginapan yang berada di kawasan Pinang Ranti, Kecamatan Makasar, Jaktim. Melansir Antara, Senin (20/2/2023), F ditemukan dalam keadaan tewas tergeletak di lantai kasur pada pukul 14.00 WIB. Korban ditemukan dalam kondisi tubuh bersimbah darah.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Kapolsek Makasar Kompol Zaini Abdillah Zainuri mengatakan korban mengalami luka tusuk di kaki, kepala, leher, hingga punggung. Namun, dia mengatakan temuan luka tusuk tersebut masih bersifat sementara karena masih menunggu hasil autopsi berupa visum et repertum psikiatrikum tim dokter RS Polri Kramat Jati.Kesaksian Warga saat Wanita Dibunuh di PenginapanSementara terkait penemuan jasad wanita dibunuh suami siri itu, salah satu pekerja bangunan Kuswandi (42) mengatakan penemuan jenazah korban bermula saat dirinya tengah bekerja merenovasi plafon. Dia kemudian mendengar sebuah teriakan kencang.&quot;Ada suara kencang &#39;aw aw&#39; begitu, saya curiga, tapi tidak langsung saya samperin, tapi lima menit sesudah itu, suami sirinya keluar kamar,&quot; kata Kuswandi, dilansir Antara, Senin (20/2).Kuswandi mencurigai pelaku lantaran melihat kaki suami siri korban berlumuran darah. Kuswandi juga melihat pelaku membawa sebilah pisau.&quot;Semakin curiga, akhirnya saya dan teman-teman langsung tangkap suaminya dan di depan gerbang kita baru tanya-tanya,&quot; ujarnya.Baca juga: Wanita Dibunuh Suami Siri di Penginapan di Jaktim, Pelaku DitangkapPolisi Berhasil Tangkap Pelaku dan Ungkap Dugaan MotifPolisi telah berhasil menangkap pelaku pembunuhan wanita berinisial F (38). Pelaku berinisial S (60) yang merupakan suami siri korban itu berhasil ditangkap kurang dari 1x24 jam dan kini ditahan sementara di Polsek Makasar, Jaktim.&quot;Alhamdulillah, kurang dari 1x24 jam pelaku berinisial S (60) sudah kita tangkap, sementara di Polsek Makasar,&quot; kata Kapolsek Makasar Kompol Zaini Abdillah Zainuri di Kecamatan Makasar, Jakarta Timur, seperti dikutip dari Antara, Senin (20/2).Zaini menyebut dugaan sementara motif wanita dibunuh suami siri itu karena suami siri korban merasa cemburu mengira istrinya selingkuh. &quot;Diduga selingkuh oleh suami sirinya dan cemburu, sehingga melakukan hal tersebut,&quot; ujarnya.Suami Siri Rencanakan Pembunuhan H-SemingguPolisi menyebut pelaku S (60) telah merencanakan aksi pembunuhannya. Kapolsek Makasar Kompol Zaini Abdillah Zainuri mengatakan rencana itu sudah disiapkan pelaku seminggu sebelum eksekusi dilakukan. Pelaku juga sudah membawa senjata tajam yang digunakannya untuk membunuh korban.&quot;Sudah direncanakan seminggu sebelumnya dan sudah mempersiapkan membawa sajam untuk dipakai membunuh korban,&quot; kata Zaini saat dihubungi, Selasa (21/2).Selain itu, pelaku mempersiapkan kain untuk menyumpal mulut korban. Hal ini bertujuan untuk memuluskan rencana pelaku saat mengeksekusi istri sirinya.&quot;Kain atau tali untuk menyumpal mulut korban agar pada saat membunuh korban teriakannya tidak terdengar oleh orang lain,&quot; ujarnya.Baca juga: Wanita Dibunuh Suami Siri di Penginapan Jaktim Tewas dengan 19 Luka TusukanKorban Tewas dengan 19 Luka Tusukan di Sekujur TubuhKorban F (38) yakni wanita dibunuh suami siri itu tewas dengan 19 luka tusukan di sekujur tubuhnya. Menurut hasil olah TKP (Tempat Kejadian Perkara), polisi menyebut luka pada tubuh korban itu akibat senjata tajam.&quot;Hasil dari olah TKP tersebut ditemukan bukti kekerasan terhadap pelaku, yaitu terdapat 19 luka akibat senjata tajam di tubuh korban, antara lain beberapa bagian tubuh,&quot; ujar Kapolsek Makasar Kompol Zaini Abdillah Zainuri saat dihubungi wartawan, Selasa (21/2).(wia/imk)wanita dibunuh suami siri wanita dibunuh suami siri di jaktim suami bunuh istri siri suami bunuh istri siri di jaktim kronologi wanita dibunuh suami siri motif suami bunuh istri siri di jaktim wanita dibunuh di penginapan jaktim wanita tewas dibunuh suami siri 
+5 Pesawat Super Hercules C-130J Datang ke RI Bertahap hingga Januari 2024
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Kepala Dinas Penerangan TNI Angkatan Udara (Kadispenau), Marsma TNI Indan Gilang Buldansyah, mengatakan lima pesawat Super Hercules C-130J akan segera dikirim dari Amerika Serikat (AS). Pengiriman dilakukan bertahap dan akan dimulai pada Maret 2023 hingga Januari 2024.&quot;Jadi, pesawat itu akan tiba di Lanud Halim 6 Maret 2023 yang akan diberangkatkan langsung dari pabrikannya di Loket Martin di Marita Georgia, AS, tanggal 28 Februari ini,&quot; kata Indan kepada wartawan di kawasan TMII, Jakarta Timur, Selasa (21/2/2023).&quot;Hercules ini akan ditempatkan di Lanud Halim Perdanakusuma. Kemudian disiapkan juga 3 awak pesawat pada penerbangan dari Georgia menuju Jakarta,&quot; lanjutnya.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Baca juga: KSAU soal Tambahan Alutsista: Hercules C-130J Akan Tiba Bulan DepanDia mengatakan tanggal 6 Maret merupakan bagian dari awal pengiriman pesawat Super Hercules C-130J. Selanjutnya, akan ada empat pesawat lainnya yang akan dikirim selama 2023.&quot;Ini adalah bagian dari awal pengiriman Hercules, kemudian kedatangan berikutnya direncanakan bulan Juli, Oktober, dan Januari tahun depan di akhir ya,&quot; ujarnya.Indan mengaku saat ini TNI AU sudah memiliki tiga pesawat Hercules yang ditempatkan di berbagai daerah di Indonesia. Menurutnya, dengan menambah alutsista tersebut, TNI AU dapat memenuhi kebutuhan transportasi personel TNI AU.&quot;Sekarang sebetulnya kalau dari, kita sudah memiliki tiga skuadron Hercules ya jadi satu di skuadron 31 di Halim, 32 di Malang, dan skuadron 33 di Abdi Saleh,&quot; ujarnya.Baca juga: Latihan Angkasa Yudha TNI AU, 1.597 Personel-52 Pesawat Serbu Wilayah Musuh&quot;Saya kira dengan melengkapi pesawat tersebut kebutuhannya bisa terpenuhi. Saya kira kedatangan lima pesawat Hercules tipe J ini akan banyak memenuhi kebutuhan kita akan transportasi berat, transportasi personel ataupun kargo yang dibutuhkan oleh kita,&quot; katanya.Sebelumnya, Kepala Staf Angkatan Udara (KSAU) Marsekal TNI Fadjar Prasetyo menyampaikan soal penguatan alat utama sistem senjata (alutsista) oleh TNI AU tahun ini. Salah satunya, menurut Fadjar, pesawat Super Hercules C-130J yang akan tiba di Tanah Air bulan depan.&quot;Yang dalam waktu dekat adalah pesawat Hercules C-130J, kira-kira bulan depan akan tiba. (Rencana yang datang) 5 unit,&quot; kata Fadjar kepada wartawan saat Rapat Pimpinan TNI AU di Gedung Puri Ardhya Garini Halim Perdanakusuma, Jakarta Timur, Jumat (10/2/2023).Selain Super Hercules C-130J, Fadjar mengatakan alutsista TNI AU akan diperkuat juga dengan helikopter Super Puma EC-225. Fadjar menuturkan helikopter tersebut akan tiba tahun ini.&quot;Dan juga Helikopter EC-225, itu tahun ini akan kita terima,&quot; imbuh dia.Tonton juga Video: Tiba di Natuna, Pesawat Hercules TNI Disemprot Disinfektan[Gambas:Video 20detik](aik/aik)tni au c-130 j super hercules hercules pesawat hercules alutsista 
+Pidato Kenegaraan, Putin Salahkan Barat Atas Perang di Ukraina!
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Presiden Rusia Vladimir Putin menyampaikan pidato kenegaraannya pada hari Selasa (21/2), menjelang peringatan setahun invasi Rusia ke Ukraina.&quot;Saya berbicara kepada Anda pada saat yang sulit dan penting bagi negara kita, pada saat perubahan besar terjadi di mana-mana di dunia,&quot; kata Putin di depan para pejabat tinggi dan elit politik Rusia.Putin berkata bahwa &quot;peristiwa bersejarah akan menentukan masa depan negara kita... masing-masing dari kita terikat oleh tanggung jawab yang sangat besar.&quot;
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Dilansir BBC, Selasa (21/2/2023), dalam pidato kenegaraannya di depan parlemen Rusia, Putin membahas tentang operasi militer Rusia di Ukraina. Putin pun menyalahkan Barat atas perang yang terjadi.Baca juga: Reaksi Rusia Atas Kunjungan Mendadak Biden ke Ukraina&quot;Ukraina dan Donbas telah menjadi simbol kebohongan total,&quot; kata Putin, menuduh Barat menarik diri dari &quot;perjanjian mendasar&quot; dan memberikan &quot;pernyataan munafik&quot; serta memperluas NATO dan &quot;menutupi kita dengan payung&quot;.&quot;Saya ingin mengulangi: merekalah yang bersalah atas perang ini, dan kita menggunakan kekuatan untuk menghentikannya,&quot; kata Putin yang disambut tepuk tangan meriah.Putin melanjutkan pidatonya dengan mengklaim Rusia mencoba menyelesaikan konflik di wilayah Donbas dengan cara damai.Dia mengatakan komitmen Barat untuk perdamaian ternyata &quot;penipuan&quot;, dan &quot;kebohongan yang kejam&quot;. Putin juga mengklaim Ukraina mencoba untuk mengumpulkan senjata biologi dan nuklir.&quot;Kita melakukan segala yang mungkin untuk menyelesaikan masalah ini secara damai, menegosiasikan jalan keluar damai dari konflik yang sulit ini, tetapi di belakang kita skenario yang sangat berbeda sedang disiapkan.&quot;Mereka [Barat] hanya mengulur waktu, menutup mata terhadap pembunuhan politik, penganiayaan terhadap orang-orang beriman,&quot; katanya.Baca juga: Alexei Navalny Sebut Kekalahan Rusia di Ukraina Tak Terhindarkan!Simak Video: Presiden Belarusia Ingin Pertemukan Biden-Putin Bahas Perdamaian[Gambas:Video 20detik](ita/ita)vladimir putin rusia invasi rusia ke ukraina ukraina 
+Dilema Kasus Pernikahan Anak di India: Suami Ditangkap, Istri Merana
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jl Perancis Kabupaten Tangerang Terus Dibangun, Progres 40%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Pembangunan Jl Raya Perancis ruas Kabupaten Tangerang masih terus dilanjutkan. Pembangunan jalan yang telah lama rusak ini dinyatakan sudah hampir mencapai setengahnya.&quot;Sampai dengan 19 Februari, progres 40,3%,&quot; kata Pejabat Pelaksana Teknis Kegiatan (PPTK) Pembangunan Jl Jati Mulya Dadap (Jl Perancis), Masyhurrofiq (Rofiq), kepada detikcom, Kamis (15/12/2022).Baca juga: Memasuki 2023, Pembangunan Jl Perancis Kabupaten Tangerang Dimulai LagiPembangunan jalan di sini menggunakan material beton cor. Proses pengerjaan saat ini adalah penerapan material beton ke permukaan jalan.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  &quot;Pembongkaran jalan beton lama dan pengecoran badan jalan,&quot; kata Rofiq yang berasal dari Dinas Bina Marga dan Sumber Daya Air (DBMSDA) Kabupaten Tangerang ini.Perbaikan Jl Raya Perancis, Kabupaten Tangerang (Dok. DBMSDA Kab Tangerang)Proses pembangunan jalan di sini dikatakannya berjalan dengan lancar. Jalan yang dibeton tentu saja tidak bisa dilalui untuk sementara waktu, namun terlihat badan jalan tidak ditutup sepenuhnya, melainkan ada badan jalan yang disisakan supaya kendaraan tetap bisa melintas.Jalan ini sudah lama rusak. Pembangunan jalan berupa pembetonan rencananya dilakukan sepanjang 3.032 meter atau 3 km. Jalan ini bakal dilapisi konstruksi beton setebal 30 cm.Baca juga: Progres Perbaikan Jl Perancis Kabupaten Tangerang Capai 12%Pengerjaan pembangunan Jl Perancis ini sudah dilakukan sejak 2022 dan ditargetkan selesai pada September 2023. Anggaran pembangunan jalan ini adalah Rp 20 miliar.(dnu/dnu)jl raya perancis rusak jalan rusak perbaikan jalan dinas bina marga kabupaten tangerang jabodetabek kabupaten tangerang detikcom do your magic 
+Pelaku Pelecehan di TransJ PHL Pospol Tambora, Curi Kartu Akses Milik Polisi
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta -  Polisi mengungkap Mufarok (56), pelaku pelecehan seksual perempuan berinisial H di bus TransJakarta (TransJ), bukan anggota Polri. Polisi menyebut Mufarok merupakan pekerja harian lepas (PHL) di pos polisi Tambora, Jakarta Barat.&quot;Pelaku adalah seorang pekerja harian lepas di Tambora, yang bernama Mufarok (56),&quot; kata Kabid Humas Polda Metro Jaya Kombes Trunoyudo Wisnu Andiko kepada wartawan, Selasa (21/2/2023).Trunoyudo menegaskan Mufarok bukan anggota Polri. Kartu akses TransJ yang dia miliki saat naik TransJ adalah milik anggota Polri berinisial AS. Mufarok mencuri kartu tersebut pada Senin (20/2) saat bekerja di Pospol Tambora.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Baca juga: Polda Metro Tegaskan Pelaku Pelecehan di TransJ Bukan Polisi&quot;M yang menggunakan akses anggota transportasi umum milik anggota yang telah diambil di meja di Pospol Tambora,&quot; ujarnya.Belum diketahui motif pasti pelaku mencuri kartu milik anggota Polri tersebut. Saat ini pelaku sudah diamankan dan dimintai keterangan terkait kasus yang ada.Aksi Pelecehan di TransJSeorang perempuan penumpang bus TransJakarta (TransJ) berinisial H mengalami pelecehan yang dilakukan penumpang pria. Cerita yang dibagikan H banyak dibahas warganet.H mengatakan peristiwa pelecehan itu terjadi pada Senin (20/2/2023) malam. Saat itu, H menumpangi bus TransJ rute Monas-Pulogadung.&quot;Keadaan TransJakarta rute Monas-Pulogadung memang selalu padat setelah jam kerja,&quot; kata H, Selasa (21/2). H mengizinkan detikcom mengutip utas yang dibuatnya.Baca juga: Pelaku Pelecehan di TransJ yang Sempat Kabur Tersungkur Ditangkap Polisi!Baca selengkapnya di halaman selanjutnya....Lihat Video: TransJ Bakal Tambah Armada Bus Pink untuk Cegah Kekerasan Seksual[Gambas:Video 20detik]Halaman                1                            2                        Selanjutnya pelecehan pelecehan di transj pelecehan seksual jabodetabek polda metro jaya 
+Kapolda Jambi Minta Anak Buahnya Lebih Dulu Dievakuasi dari Hutan Kerinci
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Sebanyak 5 penumpang helikopter yang mendarat darurat di hutan Kerinci, Jambi, telah dievakuasi. Kapolda Jambi Irjen Rusdi Hartono meminta menjadi yang terakhir dievakuasi tim gabungan.&quot;Kapolda Jambi mengutamakan anak buahnya dulu atau anggota yang dievakuasi,&quot; kata Karo Penmas Divhumas Polri Brigjen Ahmad Ramadhan, Selasa (21/2/2023).Pada hari ini, lima orang sudah dievakuasi tim gabungan menggunakan helikopter. Pada proses evakuasi hari ketiga, ada 6 helikopter yang disiagakan.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Baca juga: Giliran Pilot Berhasil Dievakuasi, Kapolda Jambi Masih di Hutan KerinciKelima orang yang telah dievakuasi ialah pilot helikopter AKP Ali Nurdin S Harahap, Direskrimum Polda Jambi Kombes Andri Ananta Yusdhistira, Dirpolairud Polda Jambi Kombes Michael Mumbunan, kopilot AKP Amos Freddy P Sitompul, dan ADC Kapolda Jambi Briptu Muhardi Aditya.Sementara itu, tiga orang yang masih menunggu untuk dievakuasi ialah Kapolda Jambi Irjen Rusdi Hartono, Koorspripim Kompol Ayani, dan mekanik Aipda Susilo.Helikopter Ditpolairud Jambi terpaksa mendarat darurat pada Minggu (19/2) kemarin. Kedelapan pilot dan penumpang mengalami luka akibat insiden tersebut.Pada Senin (20/2) kemarin, tim dari udara dan darat telah mencapai titik helikopter mendarat darurat.Helikopter yang ditumpangi Kapolda Jambi mendarat darurat di perbukitan Tamiai, Muara Empat, Kabupaten Kerinci, Jambi, pada Minggu (19/2).Simak Video: Momen Rombongan Kapolda Jambi Dievakuasi dari Hutan Kerinci![Gambas:Video 20detik](jbr/imk)helikopter kapolda jambi mendarat darurat evakuasi helikopter kapolda jambi kecelakaan helikopter kapolda jambi helikopter rombongan kapolda jambi irjen rusdi hartono 
+Reaksi Rusia Atas Kunjungan Mendadak Biden ke Ukraina
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moskow -  Presiden Amerika Serikat (AS) Joe Biden melakukan kunjungan mendadak ke Ukraina yang sedang diinvasi Rusia awal pekan ini. Kunjungan Biden itu memicu kemarahan dan membuat malu banyak pakar militer Moskow, serta memicu reaksi keras dari mantan seorang Presiden Rusia.Seperti dilansir CNN, Selasa (21/2/2023), kunjungan bersejarah Biden yang dilakukan beberapa hari sebelum peringatan setahun invasi Rusia ke Ukraina itu menjadi dorongan simbolis untuk Kiev pada titik penting dalam konflik.Namun di Moskow, kunjungan itu memancing kemarahan bagi kalangan pro-militer dan ultranasionalis. Terlebih kunjungan Biden dilakukan menjelang pidato Presiden Vladimir Putin di mana dia diperkirakan akan membanggakan pencapaian dalam apa yang disebutnya sebagai &#39;operasi militer khusus&#39; Rusia di Ukraina.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  &quot;Biden di Kiev. Penghinaan yang sungguh-sungguh bagi Rusia,&quot; sebut jurnalis Rusia Sergey Mardan dalam komentarnya via Telegram.Baca juga: Ternyata! Rusia Diberitahu AS Sebelum Biden Mendadak ke Ukraina&quot;Kisah hipersonik ajaib mungkin ditinggalkan bagi anak-anak. Seperti mantra soal perang suci yang kita kobarkan dengan seluruh negara Barat,&quot; ujarnya. &quot;Saya kira ada istirahat makan siang dalam perang suci,&quot; sindir Mardan.Veteran tentara Rusia dan mantan pejabat Dinas Keamanan Federal (FSB) Igor Girkin, secara terpisah, memberikan komentar sarkasme bahwa Biden bisa saja mengunjungi garis depan pertempuran di Ukraina bagian timur dan bisa pergi tanpa cedera.&quot;Tidak heran jika kakek (dia tidak baik untuk apapun kecuali provokasi) dibawa ke Bakhmut juga... Dan tidak akan ada yang terjadi padanya,&quot; sebut Girkin.Girkin termasuk dalam kalangan sejumlah blogger militer garis keras yang berulang kali mengkritik apa yang mereka anggap sebagai pendekatan &#39;lunak&#39; di medan pertempuran oleh jenderal-jenderal Rusia.Simak berita selengkapnya di halaman selanjutnya.Simak Video: Bertemu Biden, Zelensky Bertekad Akhiri Perang dengan Rusia Tahun Ini[Gambas:Video 20detik]Halaman                1                            2                        Selanjutnya rusia amerika serikat joe biden ukraina invasi rusia ke ukraina 
+Polda Metro Tegaskan Pelaku Pelecehan di TransJ Bukan Polisi
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta -  Seorang perempuan penumpang bus TransJakarta (TransJ) berinisial H mengalami pelecehan yang dilakukan penumpang pria. Pelaku pelecehan yang sempat tersungkur loncat saat akan melarikan diri tersebut kini sudah diamankan.Dalam postingan korban, diperlihatkan kartu pelayanan TransJakarta atas nama anggota Polri berinisial AS. Kartu tersebut terjatuh saat pelaku hendak melarikan diri.Kabid Humas Polda Metro Jaya Kombes Trunoyudo Wisnu Andiko mengatakan pelaku atas nama Mufarok (56). Dia menegaskan pelaku pelecehan bukan anggota Polri.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Baca juga: Pelaku Pelecehan di TransJ yang Sempat Kabur Tersungkur Ditangkap Polisi!&quot;Pelaku bukan merupakan anggota Polri,&quot; kata Trunoyudo kepada wartawan, Selasa (21/2/2023).Trunoyudo menyebut Mufarok merupakan pekerja harian lepas di pos polisi Tambora. Diduga dia mencuri kartu akses TransJ milik anggota saat bekerja di sana.&quot;M yang menggunakan akses anggota transportasi umum milik anggota yang telah diambil di meja di Pospol Tambora,&quot; ujarnya.Belum diketahui motif pasti pelaku mencuri kartu milik anggota Polri tersebut. Saat ini pelaku sudah diamankan dan dimintai keterangan terkait kasus yang ada.Baca juga: TransJ Siap Dampingi Penumpang Wanita Korban Pelecehan Lapor ke PolisiBaca selengkapnya di halaman selanjutnya....Simak Video: TransJ Bakal Tambah Armada Bus Pink untuk Cegah Kekerasan Seksual[Gambas:Video 20detik]Halaman                1                            2                        Selanjutnya pelecehan pelecehan seksual pelecehan di transj polda metro jaya jabodetabek 
+Kapolri Terbang ke Jambi Pantau Langsung Evakuasi Kapolda Jambi dkk
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Upaya evakuasi kecelakaan helikopter rombongan Kapolda Jambi Irjen Rusdi Hartono yang mendarat darurat di hutan Kerinci terus dilakukan. Kapolri Jenderal Listyo Sigit dan sejumlah pejabat utama Polri berangkat ke Jambi untuk memonitor langsung proses evakuasi yang masih berjalan hingga sekarang.Jenderal Sigit terbang menuju Jambi melalui Bandara Soekarno-Hatta, Cengkareng, Selasa (21/2/2023). Turut mendampingi Kabaintelkam Komjen Ahmad Dofiri, As SDM Irjen Wahyu Widada, Aslog Irjen Argo Yuwono, Kadiv Propam Irjen Syahardiantono, Kadiv Humas Irjen Dedi Prasetyo, Kadiv TIK Irjen Slamet Uliandi, Kapusdokkes Irjen Asep Hendradiana, dan Wakabareskrim Irjen Asep Edi Suheri.Sebelumnya, Kapolri Jenderal Listyo Sigit mengatakan terus memonitor perkembangan evakuasi korban kecelakaan helikopter yang ditumpangi Kapolda Jambi Irjen Rusdi Hartono dan rombongan. Dia memohon doa dan dukungan dari seluruh masyarakat agar proses evakuasi berjalan lancar.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  &quot;Saya akan terus memonitor perkembangan evakuasi korban serta kami mohon doa dan dukungan dari seluruh masyarakat,&quot; tulis Sigit lewat akun Instagramnya, @listyosigitprabowo, seperti dilihat detikcom, Senin (20/2).Sigit juga mengapresiasi seluruh pihak serta tim SAR gabungan yang mencurahkan seluruh tenaga dan pikiran untuk mengevakuasi para korban. Dia memohon doa dari seluruh masyarakat agar upaya evakuasi ini bisa berlangsung dengan lancar.&quot;Saya ucapkan terima kasih dan apresiasi yang setinggi-tingginya kepada segenap personel di lapangan maupun elemen masyarakat lainnya yang sedang bertugas untuk melakukan upaya-upaya evakuasi korban emergency landing rombongan Kapolda Jambi di Wilayah Kab Kerinci-Jambi,&quot; ucap Sigit.Informasi terakhir sejauh ini, proses evakuasi sudah berjalan. Total ada lima orang yang sudah dievakuasi. Mereka adalah Direskrimum Polda Jambi Kombes Andri Ananta Yusdhistira, Dirpolairud Polda Jambi Kombes Michael Mumbunan, kopilot AKP Amos Freddy P Sitompul, ADC Kapolda Jambi Briptu Muhardi Aditya, dan pilot helikopter AKP Ali Nurdin S Harahap.Masih ada 3 orang yang belum dievakuasi dari hutan Kerinci. Mereka ialah Kapolda Jambi Irjen Rusdi Hartono, Koorspripim Kompol Ayani, dan mekanik Aipda Susilo.Simak Video: Momen Rombongan Kapolda Jambi Dievakuasi dari Hutan Kerinci![Gambas:Video 20detik](hri/haf)kapolda jambi kapolri jambi kapolri jenderal listyo sigit prabowo 
+Gubernur Bali Minta Warganya Punya 4 Anak agar Ketut dan Nyoman Tak Punah
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Gubernur Bali I Wayan Koster akan mencanangkan program Keluarga Berencana (KB) empat anak. Hal ini dilakukan guna nama budaya Bali tidak punah.&quot;Makanya, saya menggalakkan jangan KB dua anak, tetapi KB empat anak,&quot; ujar Koster di Art Center, dilansir detikBali, Selasa (21/2/2023).Baca juga: Asosiasi Ungkap 70% Hotel di Bali Jadikan Arak Sebagai Welcome Drink&quot;Kalau semuanya dua anak, berarti Nyoman dan Ketut punah, dong? Kan kehilangan unsur budaya ini,&quot; sambungnya.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Selanjutnya, Koster juga mewanti-wanti soal nama Nyoman dan Ketut yang dinilainya sudah langka. Hal ini katanya sudah dikoordinasikan ke Kepala Badan Kependudukan Keluarga Berencana Nasional (BKKBN) Hasto Wardoyo.&quot;Sekarang, coba cek pendaftaran siswa baru di SD. Masuk SD, pertama itu lihat ada berapa Nyoman? Ada berapa Ketut? Pasti, sudah langka sekali,&quot; tegas Koster.Baca juga: 2 Jenazah WNI Korban Gempa Turki Teridentifikasi, Ini IdentitasnyaBerdasarkan sensus penduduk Badan Pusat Statistik (BPS), jumlah penduduk Bali sebanyak 4,32 juta jiwa per 2020. Secara rinci, 2,17 juta berjenis kelamin laki-laki, dan 2,15 juta berjenis kelamin perempuan.Baca selengkapnya di sini.Tonton juga Video: Indahnya Air Terjun Tersembunyi di Tengah Hutan Lindung di Buleleng[Gambas:Video 20detik](azh/imk)gubernur bali i wayan koster bali keluarga berencana 
+Giliran Pilot Berhasil Dievakuasi, Kapolda Jambi Masih di Hutan Kerinci
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Tim gabungan kembali mengevakuasi rombongan Kapolda Jambi Irjen Rusdi Hartono yang mendarat darurat di hutan Kerinci, Jambi. Total ada 5 orang yang sudah dievakuasi.Berdasarkan informasi yang diterima detikcom, Selasa (21/2/2023), tim gabungan mengevakuasi pilot helikopter AKP Ali Nurdin S Harahap.Empat orang yang sebelumnya sudah dievakuasi ialah Direskrimum Polda Jambi Kombes Andri Ananta Yusdhistira, Dirpolairud Polda Jambi Kombes Michael Mumbunan, kopilot AKP Amos Freddy P Sitompul, dan ADC Kapolda Jambi Briptu Muhardi Aditya.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  Baca juga: TNI AU Ungkap Sulitnya Medan Evakuasi Kapolda Jambi di Hutan KerinciMasih ada 3 orang yang belum dievakuasi dari hutan Kerinci. Mereka ialah Kapolda Jambi Irjen Rusdi Hartono, Koorspripim Kompol Ayani, dan mekanik Aipda Susilo.Pada hari ketiga proses evakuasi, ada 6 helikopter yang disiagakan. Proses evakuasi sejak pagi tadi sempat terhalang kabut.Baca juga: Tambah 2, Kini 4 Orang Rombongan Kapolda Jambi Berhasil DievakuasiUntuk diketahui, helikopter yang ditumpangi Kapolda Jambi mendarat darurat di perbukitan Tamiai, Muara Empat, Kabupaten Kerinci, Jambi, pada Minggu (19/2) kemarin. Pilot dan penumpang kru mengalami luka-luka akibat insiden tersebut.Simak Video &#39;Momen Rombongan Kapolda Jambi Dievakuasi dari Hutan Kerinci!&#39;:[Gambas:Video 20detik](jbr/imk)helikopter kapolda jambi mendarat darurat evakuasi helikopter kapolda jambi 
+Kapolri Tegaskan Teddy Minahasa dan Anggota Bermasalah di Sidang Etik
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ngeri! Bocah di Lebak Temukan King Cobra 2 Meter Saat Main di Halaman
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Sejumlah anak di Rangkasbitung, Lebak, Banten, menemukan ular jenis king cobra saat bermain di halaman rumah salah satu warga. Penemuan ular itu dilaporkan ke petugas pemadam kebakaran (damkar) yang kemudian melakukan evakuasi.&quot;Awalnya ular tersebut ditemukan anak-anak saat sedang bermain, pemilik rumah mencoba mengepungnya ke sudut halaman rumah, kemudian melapor ke kami,&quot; kata petugas Damkar Lebak, Ade Apriyadi, kepada wartawan, Selasa (21/2/2023).Baca juga: Cabuli Adik Ipar Masih Dibawah Umur, Pria di Lebak Ditangkap PolisiAde mengatakan ular jenis king cobra ini mempunyai panjang 2 meter. Dia mengatakan ular tersebut sangat berbahaya.
+      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
+
+    ADVERTISEMENT
+  
+    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
+  
+        SCROLL TO RESUME CONTENT
+  
+  function paraA(e) {
+  var p = $(e);
+  $(e + &quot; .para_fix&quot;).width(p.width());
+  }
+  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
+  &quot;Ular jenis king corba di salah satu rumah di jalan Multatuli, Rangkasbitung. Ular ini sangat membahayakan manusia karena mempunyai bisa yang mematikan,&quot; jelasnya.Ade memperkirakan ular tersebut datang dari rawa yang ada di belakang rumah warga. Ade mengimbau warga untuk melapor ke Damkar apabila menemukan hewan yang berbahaya.&quot;Kami mengevakuasi menggunakan tongkat ular. Kami berharap warga yang menemukan hewan berbahaya seperti ular ini bisa segera melapor,&quot; ujarnya.Baca juga: Pengedar Narkoba Pakai Mobil Dinas di Lebak Ternyata Residivis CuranmorTonton juga Video: Teror di Rumah Eks Gubernur Banten: Sekarung Ular Kobra, Jelang Anies Datang[Gambas:Video 20detik](haf/haf)ular king kobra lebak 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">datas</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;judul&#39;</span><span class="p">,</span> <span class="s1">&#39;isi&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-d7699f2b-6912-40d6-ad86-eae85aa7bba2">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>judul</th>
+      <th>isi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mahfud Md Gelar Pertemuan dengan Sejum...</td>
+      <td>Jakarta - Menteri Koordinator bidang Politik, ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ramadan 2023 Jatuh pada Tanggal Berapa...</td>
+      <td>Jakarta - Ramadan 2023 jatuh pada tanggal bera...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Penyandera Tuntut Uang Tebusan untuk B...</td>
+      <td>Jakarta - Polisi Papua Nugini mengatakan kelom...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5 Berita Terpopuler Internasional Hari...</td>
+      <td>Jakarta -  Kunjungan mendadak Presiden Amerika...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Driver Ojol Pelaku Tabrak Lari dan Bua...</td>
+      <td>Depok - Manajemen Gojek Indonesia buka suara t...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>22 Adegan Diperagakan di R...</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Wanita Dibunuh Suami Siri di Jaktim, I...</td>
+      <td>Jakarta - Seorang wanita dibunuh suami siri di...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>5 Pesawat Super Hercules C-130J Datang...</td>
+      <td>Jakarta - Kepala Dinas Penerangan TNI Angkatan...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Pidato Kenegaraan, Putin Salahkan Bara...</td>
+      <td>Jakarta - Presiden Rusia Vladimir Putin menyam...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Dilema Kasus Pernikahan Anak di India:...</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Jl Perancis Kabupaten Tangerang Terus ...</td>
+      <td>Jakarta - Pembangunan Jl Raya Perancis ruas Ka...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Pelaku Pelecehan di TransJ PHL Pospol ...</td>
+      <td>Jakarta -  Polisi mengungkap Mufarok (56), pel...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Kapolda Jambi Minta Anak Buahnya Lebih...</td>
+      <td>Jakarta - Sebanyak 5 penumpang helikopter yang...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Reaksi Rusia Atas Kunjungan Mendadak B...</td>
+      <td>Moskow -  Presiden Amerika Serikat (AS) Joe Bi...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Polda Metro Tegaskan Pelaku Pelecehan ...</td>
+      <td>Jakarta -  Seorang perempuan penumpang bus Tra...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Kapolri Terbang ke Jambi Pantau Langsu...</td>
+      <td>Jakarta - Upaya evakuasi kecelakaan helikopter...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Gubernur Bali Minta Warganya Punya 4 A...</td>
+      <td>Jakarta - Gubernur Bali I Wayan Koster akan me...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Giliran Pilot Berhasil Dievakuasi, Kap...</td>
+      <td>Jakarta - Tim gabungan kembali mengevakuasi ro...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Kapolri Tegaskan Teddy Min...</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Ngeri! Bocah di Lebak Temukan King Cob...</td>
+      <td>Jakarta - Sejumlah anak di Rangkasbitung, Leba...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-d7699f2b-6912-40d6-ad86-eae85aa7bba2')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-d7699f2b-6912-40d6-ad86-eae85aa7bba2 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-d7699f2b-6912-40d6-ad86-eae85aa7bba2');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;crawl_berita.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
