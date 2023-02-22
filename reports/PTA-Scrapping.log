@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['datas=[]', 'n = 5', "url = 'https://news.detik.com/indeks/'", 'header={', "    'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'"]
+['listPTA = []', '', 'for i in range(152,173):', '  URL = "https://pta.trunojoyo.ac.id/c_search/byprod/10/" + str(i+1)', '  req = requests.get(URL)']
 ...
-["      isi = soup2.find('div','detail__body-text itp_bodycontent').text.replace('\\n','').replace('\\t', '').replace('[Gambas:Video 20detik]', '')", '    except:', "      isi=''", '    print(isi)', '    datas.append([judul, isi])']
+["    abstrak = soup2.find('p', {'align':'justify'}).text", '  ', "    tempNIM = link.replace('https://pta.trunojoyo.ac.id/welcome/detail/', '')", '', "    listPTA.append([it.a.text.strip('\\n'), tempNIM, tempNama, abstrak])"]
 -------------------
 
