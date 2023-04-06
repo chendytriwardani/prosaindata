@@ -162,8 +162,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="PTA-Scraping.html">PTA-Scrapping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas2_Pipeline.html">Tugas 2 PipeLine</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS PTA</a></li>
-
-
 </ul>
 
     </div>
@@ -357,42 +355,45 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">UTS PTA</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-yang-bernilai-null">cek data yang bernilai null</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hapus-data-null">Hapus Data Null</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-not-null">Cek data not null</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-menggunakan-matplotlib">Plot menggunakan matplotlib</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-data-cleaning">Export Data Cleaning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-missing-value">menghapus missing value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-missing-value">Cek missing value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hapus data null</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-data-duplicate-value">Menghapus data Duplicate value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-kolom-judul">Cek Data Kolom Judul</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Cek Data Kolom Judul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprosesing-data">Preprosesing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-yang-bernilai-null">Cek data yang bernilai null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hapus-data-null">Hapus Data Null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-not-null">Cek data not null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-menggunakan-matplotlib">Plot menggunakan matplotlib</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-data-cleaning">Export Data Cleaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-missing-value">Menghapus missing value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-missing-value">Cek missing value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hapus data null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-data-duplicate-value">Menghapus data Duplicate value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-kolom-judul">Cek Data Kolom Judul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Cek Data Kolom Judul</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi-abstrak">Tokenisasi Abstrak</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-stop-world">Menghitung stop world</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stop-word-judul">Stop Word Judul</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stop-word-abstrak">Stop Word Abstrak</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-tersebut-dilakukan-stemming">Data tersebut dilakukan stemming</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-judul">Stemming judul</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-abstrak">Stemming abstrak</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi-abstrak">Tokenisasi Abstrak</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-stop-world">Menghitung stop world</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stop-word-judul">Stop Word Judul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stop-word-abstrak">Stop Word Abstrak</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-data">Modeling data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">Ekstraksi Fitur</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oversampling">Oversampling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-data">Training data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive bayes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-data">Evaluasi data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes-gaussian">NAIVE BAYES GAUSSIAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-data">Stemming Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-judul">Stemming judul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-abstrak">Stemming abstrak</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-data">Modeling data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">Ekstraksi Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oversampling">Oversampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-data">Training data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-data">Evaluasi data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes-gaussian">NAIVE BAYES GAUSSIAN</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -492,9 +493,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p>#Preprosesing data</p>
+<div class="section" id="preprosesing-data">
+<h2>Preprosesing data<a class="headerlink" href="#preprosesing-data" title="Permalink to this heading">#</a></h2>
 <div class="section" id="cek-data-yang-bernilai-null">
-<h2>cek data yang bernilai null<a class="headerlink" href="#cek-data-yang-bernilai-null" title="Permalink to this heading">#</a></h2>
+<h3>Cek data yang bernilai null<a class="headerlink" href="#cek-data-yang-bernilai-null" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -516,7 +518,7 @@ dtype: int64
 <p>Hapus data yang bernilai null</p>
 </div>
 <div class="section" id="hapus-data-null">
-<h2>Hapus Data Null<a class="headerlink" href="#hapus-data-null" title="Permalink to this heading">#</a></h2>
+<h3>Hapus Data Null<a class="headerlink" href="#hapus-data-null" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -544,7 +546,7 @@ dtype: int64
 <p>Data null pada abstrak dihilangkan</p>
 </div>
 <div class="section" id="cek-data-not-null">
-<h2>Cek data not null<a class="headerlink" href="#cek-data-not-null" title="Permalink to this heading">#</a></h2>
+<h3>Cek data not null<a class="headerlink" href="#cek-data-not-null" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
@@ -586,7 +588,7 @@ Name: Kelas, dtype: int64
 </div>
 </div>
 <div class="section" id="plot-menggunakan-matplotlib">
-<h2>Plot menggunakan matplotlib<a class="headerlink" href="#plot-menggunakan-matplotlib" title="Permalink to this heading">#</a></h2>
+<h3>Plot menggunakan matplotlib<a class="headerlink" href="#plot-menggunakan-matplotlib" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -600,7 +602,7 @@ Name: Kelas, dtype: int64
 <img alt="_images/0057711b0b4623c9e3710a35519578dd177bcb3111dce5eccb968fba71367e36.png" src="_images/0057711b0b4623c9e3710a35519578dd177bcb3111dce5eccb968fba71367e36.png" />
 </div>
 </div>
-<p>#Cleaning Text</p>
+<p>##Cleaning Text</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">string</span>
@@ -796,7 +798,7 @@ Name: Kelas, dtype: int64
 </div>
 </div>
 <div class="section" id="export-data-cleaning">
-<h2>Export Data Cleaning<a class="headerlink" href="#export-data-cleaning" title="Permalink to this heading">#</a></h2>
+<h3>Export Data Cleaning<a class="headerlink" href="#export-data-cleaning" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;PTA_Cleaning.csv&#39;</span><span class="p">)</span>
@@ -806,7 +808,7 @@ Name: Kelas, dtype: int64
 </div>
 </div>
 <div class="section" id="menghapus-missing-value">
-<h2>menghapus missing value<a class="headerlink" href="#menghapus-missing-value" title="Permalink to this heading">#</a></h2>
+<h3>Menghapus missing value<a class="headerlink" href="#menghapus-missing-value" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
@@ -816,7 +818,7 @@ Name: Kelas, dtype: int64
 </div>
 </div>
 <div class="section" id="cek-missing-value">
-<h2>Cek missing value<a class="headerlink" href="#cek-missing-value" title="Permalink to this heading">#</a></h2>
+<h3>Cek missing value<a class="headerlink" href="#cek-missing-value" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -836,7 +838,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="id1">
-<h2>Hapus data null<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h3>Hapus data null<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -863,7 +865,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="menghapus-data-duplicate-value">
-<h2>Menghapus data Duplicate value<a class="headerlink" href="#menghapus-data-duplicate-value" title="Permalink to this heading">#</a></h2>
+<h3>Menghapus data Duplicate value<a class="headerlink" href="#menghapus-data-duplicate-value" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Judul&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span>
@@ -990,7 +992,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="cek-data-kolom-judul">
-<h2>Cek Data Kolom Judul<a class="headerlink" href="#cek-data-kolom-judul" title="Permalink to this heading">#</a></h2>
+<h3>Cek Data Kolom Judul<a class="headerlink" href="#cek-data-kolom-judul" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove duplicates judul</span>
@@ -1113,7 +1115,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="id2">
-<h2>Cek Data Kolom Judul<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h3>Cek Data Kolom Judul<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove duplicates abstrak</span>
@@ -1255,8 +1257,8 @@ dtype: int64
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="tokenisasi">
-<h1>Tokenisasi<a class="headerlink" href="#tokenisasi" title="Permalink to this heading">#</a></h1>
+<div class="section" id="tokenisasi">
+<h2>Tokenisasi<a class="headerlink" href="#tokenisasi" title="Permalink to this heading">#</a></h2>
 <p>Memisahkan kalimat perkata</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1321,7 +1323,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>##Tokenisasi Judul</p>
+<p>###Tokenisasi Judul</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenizing Judul</span>
@@ -1463,7 +1465,7 @@ dtype: int64
   </div></div>
 </div>
 <div class="section" id="tokenisasi-abstrak">
-<h2>Tokenisasi Abstrak<a class="headerlink" href="#tokenisasi-abstrak" title="Permalink to this heading">#</a></h2>
+<h3>Tokenisasi Abstrak<a class="headerlink" href="#tokenisasi-abstrak" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenizing Abstrak</span>
@@ -1606,7 +1608,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="menghitung-stop-world">
-<h2>Menghitung stop world<a class="headerlink" href="#menghitung-stop-world" title="Permalink to this heading">#</a></h2>
+<h3>Menghitung stop world<a class="headerlink" href="#menghitung-stop-world" title="Permalink to this heading">#</a></h3>
 <p>mendeteksi stop word pada kalimat</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1639,7 +1641,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="stop-word-judul">
-<h2>Stop Word Judul<a class="headerlink" href="#stop-word-judul" title="Permalink to this heading">#</a></h2>
+<h3>Stop Word Judul<a class="headerlink" href="#stop-word-judul" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Judul&quot;</span><span class="p">,</span> <span class="s2">&quot;judul_tokens&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1780,7 +1782,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="stop-word-abstrak">
-<h2>Stop Word Abstrak<a class="headerlink" href="#stop-word-abstrak" title="Permalink to this heading">#</a></h2>
+<h3>Stop Word Abstrak<a class="headerlink" href="#stop-word-abstrak" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Abstrak&quot;</span><span class="p">,</span> <span class="s2">&quot;abstrak_tokens&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1920,8 +1922,9 @@ dtype: int64
   </div></div>
 </div>
 </div>
-<div class="section" id="data-tersebut-dilakukan-stemming">
-<h2>Data tersebut dilakukan stemming<a class="headerlink" href="#data-tersebut-dilakukan-stemming" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="stemming-data">
+<h2>Stemming Data<a class="headerlink" href="#stemming-data" title="Permalink to this heading">#</a></h2>
 <p>stemming digunakan untuk mengubah kata menjadi kata dasar</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1952,9 +1955,8 @@ Successfully installed sastrawi-1.0.1
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="stemming-judul">
-<h2>Stemming judul<a class="headerlink" href="#stemming-judul" title="Permalink to this heading">#</a></h2>
+<h3>Stemming judul<a class="headerlink" href="#stemming-judul" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stemming judul</span>
@@ -2106,7 +2108,7 @@ Successfully installed sastrawi-1.0.1
 </div>
 </div>
 <div class="section" id="stemming-abstrak">
-<h2>Stemming abstrak<a class="headerlink" href="#stemming-abstrak" title="Permalink to this heading">#</a></h2>
+<h3>Stemming abstrak<a class="headerlink" href="#stemming-abstrak" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stemming abstrak</span>
@@ -2437,8 +2439,8 @@ Successfully installed sastrawi-1.0.1
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="modeling-data">
-<h1>Modeling data<a class="headerlink" href="#modeling-data" title="Permalink to this heading">#</a></h1>
+<div class="section" id="modeling-data">
+<h2>Modeling data<a class="headerlink" href="#modeling-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -2452,7 +2454,7 @@ Successfully installed sastrawi-1.0.1
 </div>
 </div>
 <div class="section" id="ekstraksi-fitur">
-<h2>Ekstraksi Fitur<a class="headerlink" href="#ekstraksi-fitur" title="Permalink to this heading">#</a></h2>
+<h3>Ekstraksi Fitur<a class="headerlink" href="#ekstraksi-fitur" title="Permalink to this heading">#</a></h3>
 <p>term frequency-inverse document frequency</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2537,7 +2539,7 @@ Successfully installed sastrawi-1.0.1
 </div>
 </div>
 <div class="section" id="oversampling">
-<h2>Oversampling<a class="headerlink" href="#oversampling" title="Permalink to this heading">#</a></h2>
+<h3>Oversampling<a class="headerlink" href="#oversampling" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -2547,10 +2549,10 @@ Successfully installed sastrawi-1.0.1
 </div>
 </div>
 <div class="section" id="training-data">
-<h2>Training data<a class="headerlink" href="#training-data" title="Permalink to this heading">#</a></h2>
+<h3>Training data<a class="headerlink" href="#training-data" title="Permalink to this heading">#</a></h3>
 </div>
 <div class="section" id="naive-bayes">
-<h2>Naive bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this heading">#</a></h2>
+<h3>Naive bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
@@ -2588,7 +2590,7 @@ weighted avg       0.79      0.69      0.71       243
 </div>
 </div>
 <div class="section" id="knn">
-<h2>KNN<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h2>
+<h3>KNN<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
@@ -2621,6 +2623,7 @@ weighted avg       0.79      0.69      0.71       243
    macro avg       0.74      0.68      0.69       243
 weighted avg       0.83      0.84      0.83       243
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -2674,7 +2677,7 @@ Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3
 </div>
 </div>
 </div>
-<p>#KNN</p>
+<p>###KNN</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print a classification report</span>
@@ -2717,9 +2720,8 @@ F1 score :  0.8290484183249041
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="naive-bayes-gaussian">
-<h2>NAIVE BAYES GAUSSIAN<a class="headerlink" href="#naive-bayes-gaussian" title="Permalink to this heading">#</a></h2>
+<h3>NAIVE BAYES GAUSSIAN<a class="headerlink" href="#naive-bayes-gaussian" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print a classification report</span>
@@ -2759,6 +2761,7 @@ Precision score :  0.7939249448967372
 Recall score :  0.691358024691358
 F1 score :  0.7103378400471605
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -2823,42 +2826,45 @@ F1 score :  0.7103378400471605
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">UTS PTA</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-yang-bernilai-null">cek data yang bernilai null</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hapus-data-null">Hapus Data Null</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-not-null">Cek data not null</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-menggunakan-matplotlib">Plot menggunakan matplotlib</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-data-cleaning">Export Data Cleaning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-missing-value">menghapus missing value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-missing-value">Cek missing value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hapus data null</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-data-duplicate-value">Menghapus data Duplicate value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-kolom-judul">Cek Data Kolom Judul</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Cek Data Kolom Judul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprosesing-data">Preprosesing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-yang-bernilai-null">Cek data yang bernilai null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hapus-data-null">Hapus Data Null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-not-null">Cek data not null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-menggunakan-matplotlib">Plot menggunakan matplotlib</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-data-cleaning">Export Data Cleaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-missing-value">Menghapus missing value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-missing-value">Cek missing value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hapus data null</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-data-duplicate-value">Menghapus data Duplicate value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-kolom-judul">Cek Data Kolom Judul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Cek Data Kolom Judul</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi-abstrak">Tokenisasi Abstrak</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-stop-world">Menghitung stop world</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stop-word-judul">Stop Word Judul</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stop-word-abstrak">Stop Word Abstrak</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-tersebut-dilakukan-stemming">Data tersebut dilakukan stemming</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-judul">Stemming judul</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-abstrak">Stemming abstrak</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi-abstrak">Tokenisasi Abstrak</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-stop-world">Menghitung stop world</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stop-word-judul">Stop Word Judul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stop-word-abstrak">Stop Word Abstrak</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-data">Modeling data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">Ekstraksi Fitur</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#oversampling">Oversampling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-data">Training data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive bayes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-data">Evaluasi data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes-gaussian">NAIVE BAYES GAUSSIAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-data">Stemming Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-judul">Stemming judul</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming-abstrak">Stemming abstrak</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-data">Modeling data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">Ekstraksi Fitur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oversampling">Oversampling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-data">Training data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive bayes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-data">Evaluasi data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes-gaussian">NAIVE BAYES GAUSSIAN</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
