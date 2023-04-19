@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'GraphPegerank';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="UTS PTA" href="UTS_PTA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -153,7 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="crawling_twitter1.html">Crawl_twitter</a></li>
@@ -161,6 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="PTA-Scraping.html">PTA-Scrapping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas2_Pipeline.html">Tugas 2 PipeLine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="UTS_PTA.html">UTS PTA</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas Pagerank</a></li>
 </ul>
 
     </div>
@@ -363,6 +365,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-read-document">Fungsi read document</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-document">Read document</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-tokenisasi">Fungsi Tokenisasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-term-document-matrix-td-matrix-dari-data">Generate term-document matrix (TD matrix) dari data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-dalam-bentuk-graph">Visualisasi data dalam bentuk graph</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-page-rank-pada-setiap-kalimat">Menentukan page rank pada setiap kalimat</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-kata-yang-dianggap-penting-dan-generate-summary">Menentukan kata yang dianggap penting dan generate summary</a></li>
@@ -417,7 +420,7 @@ Hitung menggunakan pagerank menggunakan networkx\</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/138be6ea79bd5b4ae2e964f69bf1cd9edc8f792b78332f0dd4b5cea07ed9d0cc.png" src="_images/138be6ea79bd5b4ae2e964f69bf1cd9edc8f792b78332f0dd4b5cea07ed9d0cc.png" />
+<img alt="_images/3926cd87b77fdec2151aa77e21b7c20d0e2def36399e3f199d0dda71a9a7819d.png" src="_images/3926cd87b77fdec2151aa77e21b7c20d0e2def36399e3f199d0dda71a9a7819d.png" />
 </div>
 </div>
 <div class="section" id="membuat-pagerank-dengan-manual">
@@ -469,22 +472,19 @@ Hitung menggunakan pagerank menggunakan networkx\</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading package lists... 0%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading package lists... 0%
 
 Reading package lists... 0%
 
-Reading package lists... 0%
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading package lists... 4%
+Reading package lists... 4%
 
 Reading package lists... 4%
 
 Reading package lists... 4%
 
 Reading package lists... 4%
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading package lists... 37%
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading package lists... 45%
@@ -495,7 +495,10 @@ Reading package lists... 45%
 
 Reading package lists... 45%
 
-Reading package lists... 56%
+Reading package lists... 49%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading package lists... 56%
 
 Reading package lists... 56%
 
@@ -539,17 +542,19 @@ Reading package lists... 90%
 Reading package lists... 91%
 
 Reading package lists... 91%
+
+Reading package lists... 92%
+
+Reading package lists... 94%
+
+Reading package lists... 94%
+
+Reading package lists... 94%
+
+Reading package lists... 94%
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading package lists... 94%
-
-Reading package lists... 94%
-
-Reading package lists... 94%
-
-Reading package lists... 94%
-
-Reading package lists... 98%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Reading package lists... 98%
 
 Reading package lists... 98%
 
@@ -566,8 +571,6 @@ Reading package lists... 99%
 Reading package lists... 99%
 
 Reading package lists... Done
-
-Building dependency tree... 0%
 
 Building dependency tree... 0%
 
@@ -598,19 +601,12 @@ Requirement already satisfied: lxml&gt;=2.3.2 in /usr/local/lib/python3.9/dist-p
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: docx in /usr/local/lib/python3.9/dist-packages (0.2.4)
-Requirement already satisfied: Pillow&gt;=2.0 in /usr/local/lib/python3.9/dist-packages (from docx) (8.4.0)
 Requirement already satisfied: lxml in /usr/local/lib/python3.9/dist-packages (from docx) (4.9.2)
+Requirement already satisfied: Pillow&gt;=2.0 in /usr/local/lib/python3.9/dist-packages (from docx) (8.4.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting docx2txt
-  Using cached docx2txt-0.8-py3-none-any.whl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: docx2txt
-Successfully installed docx2txt-0.8
+Requirement already satisfied: docx2txt in /usr/local/lib/python3.9/dist-packages (0.8)
 </pre></div>
 </div>
 </div>
@@ -794,7 +790,9 @@ Sehingga bisa terus mendukung lahirnya kebijakan-kebijakan berbasis data yang be
 </div>
 </div>
 </div>
-<p>##Generate term-document matrix (TD matrix) dari data</p>
+</div>
+<div class="section" id="generate-term-document-matrix-td-matrix-dari-data">
+<h3>Generate term-document matrix (TD matrix) dari data<a class="headerlink" href="#generate-term-document-matrix-td-matrix-dari-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
@@ -1102,6 +1100,15 @@ Sehingga bisa terus mendukung lahirnya kebijakan-kebijakan berbasis data yang be
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="UTS_PTA.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">UTS PTA</p>
+      </div>
+    </a>
 </div></div>
   
 </div>
@@ -1129,6 +1136,7 @@ Sehingga bisa terus mendukung lahirnya kebijakan-kebijakan berbasis data yang be
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-read-document">Fungsi read document</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-document">Read document</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-tokenisasi">Fungsi Tokenisasi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-term-document-matrix-td-matrix-dari-data">Generate term-document matrix (TD matrix) dari data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-dalam-bentuk-graph">Visualisasi data dalam bentuk graph</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-page-rank-pada-setiap-kalimat">Menentukan page rank pada setiap kalimat</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-kata-yang-dianggap-penting-dan-generate-summary">Menentukan kata yang dianggap penting dan generate summary</a></li>
