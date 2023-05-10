@@ -1,39 +1,68 @@
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 730, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/util.py", line 96, in ensure_async
-    result = await obj
-  File "/usr/local/lib/python3.9/dist-packages/jupyter_client/asynchronous/channels.py", line 48, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 1204, in execute
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/util.py", line 84, in wrapped
-    return just_run(coro(*args, **kwargs))
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/util.py", line 62, in just_run
-    return loop.run_until_complete(coro)
-  File "/usr/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 663, in async_execute
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 949, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 754, in _async_poll_for_reply
-    await self._async_handle_timeout(timeout, cell)
-  File "/usr/local/lib/python3.9/dist-packages/nbclient/client.py", line 801, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['datas=[]', 'n = 5', "url = 'https://news.detik.com/indeks/'", 'header={', "    'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'"]
-...
-["      isi = soup2.find('div','detail__body-text itp_bodycontent').text.replace('\\n','').replace('\\t', '').replace('[Gambas:Video 20detik]', '')", '    except:', "      isi=''", '    print(isi)', '    datas.append([judul, isi])']
--------------------
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+datas=[]
+n = 5
+url = 'https://news.detik.com/indeks/'
+header={
+    'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'
+}
+
+
+for page in range(1,n+1):
+  req = requests.get(url+str(page),headers=header)
+  soup = BeautifulSoup(req.text, 'html.parser')
+  berita = soup.findAll('article', 'list-content__item')
+  # print(berita)
+  for item in berita:
+    link = item.find('a','media__link')['href']
+    judul2 = item.find('h3','media__title').text.replace('\n','')
+    print(judul2)
+    req2 = requests.get(link)
+    soup2 = BeautifulSoup(req2.text, 'html.parser')
+    judul = soup2.find('h1', 'detail__title').text.replace('\n','')
+    try:
+      isi = soup2.find('div','detail__body-text itp_bodycontent').text.replace('\n','').replace('\t', '').replace('[Gambas:Video 20detik]', '')
+    except:
+      isi=''
+    print(isi)
+    datas.append([judul, isi])
+
+
+
+
+
+------------------
+
+----- stdout -----
+Beda dengan PDIP, PSI Tak Calegkan Anggota Kabinet Jokowi
+----- stdout -----
+Jakarta - Partai Solidaritas Indonesia atau PSI memutuskan untuk tidak mencalegkan kadernya yang berada di Kabinet Jokowi. PSI menekankan Wakil Menteri dari PSI diminta fokus membantu Presiden Joko Widodo (Jokowi) menuntaskan persoalan."Wamen PSI adalah petugas rakyat yang diberikan amanah oleh Presiden Jokowi untuk bekerja ikhlas dan tuntas membantu Pak Menteri Hadi Tjajanto memperbaik sistem adminstrasi pertanahan di Indonesia," kata Jubir PSI, Aryo Bimmo, dalam keterangannya, Rabu (10/5/2023).Baca juga: PDIP Daftarkan Nama-nama Caleg ke KPU 11 Mei, Ada Menteri Kabinet JokowiAryo menyebut PSI tidak mengizinkan Wamen dari PSI untuk maju sebagai calon anggota DPR RI. PSI mendorong Wamen PSI menyelesaikan tugas yang diberikan oleh Jokowi.    ADVERTISEMENT          SCROLL TO RESUME CONTENT  "Oleh karena itu Wamen PSI sebagai petugas rakyat tidak diizinkan partai untuk menjadi calon anggota legislatif. Wamen PSI harus fokus menyelesaikan tugas yang diberikan presiden mengadministrasikan keadilan di sektor pertanahan," ucapnya.Kondisi ini tentunya berbeda dengan partai lain. PDIP, misalnya, mendaftarkan kadernya, termasuk para menteri untuk maju di 2024."Pendaftaran seluruh calon anggota legislatif dari kabupaten, kota, dan provinsi dan tingkat pusat akan dilakukan secara serentak pada 11 Mei jam 10.00 tepat seluruh Indonesia akan melakukan pendaftaran," kata Hasto di Stadion Gelora Bung Karno (GBK), Jakarta, Senin (8/5).Namun, Hasto belum bisa membeberkan nama-nama caleg dari PDIP dan hanya mengindikasikan sosok itu berasal dari berbagai kalangan seperti akademisi, budayawan, hingga menteri era pemerintahan Joko Widodo (Jokowi)-Ma'ruf Amin.Baca juga: PKPU 10/2023 Direvisi, KPU Beri Waktu Parpol Perbaiki Berkas BacalegNantinya, caleg yang diumumkan PDIP punya kewajiban untuk memenangkan capres."Siapa yang akan menjadi caleg nantinya juga akan menjadi pilar yang sangat penting di dalam pemenangan Bapak Ganjar Pranowo," tutur Hasto."Mengingat seluruh caleg bersama kepala daerah dan capres itu satu kesatuan, sehingga nama-nama siapa saja yang menjadi vote getters, nama-nama yang mewakili akademisi, dari tokoh budayawan, nama menteri dalam kabinet Pak Jokowi yang akan dicalonkan PDIP, pakar yang akan menjadi core penting dalam setiap komisi," pungkasnya.(maa/van)jokowi psi caleg 
+Rekening Kurus Para Dosen Pengamen
+------------------
+
+[0;31m[0m
+[0;31mAttributeError[0mTraceback (most recent call last)
+[0;32m<ipython-input-3-e4af2018265a>[0m in [0;36m<cell line: 9>[0;34m()[0m
+[1;32m     18[0m     [0mreq2[0m [0;34m=[0m [0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0mlink[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m     [0msoup2[0m [0;34m=[0m [0mBeautifulSoup[0m[0;34m([0m[0mreq2[0m[0;34m.[0m[0mtext[0m[0;34m,[0m [0;34m'html.parser'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 20[0;31m     [0mjudul[0m [0;34m=[0m [0msoup2[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'h1'[0m[0;34m,[0m [0;34m'detail__title'[0m[0;34m)[0m[0;34m.[0m[0mtext[0m[0;34m.[0m[0mreplace[0m[0;34m([0m[0;34m'\n'[0m[0;34m,[0m[0;34m''[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     21[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     22[0m       [0misi[0m [0;34m=[0m [0msoup2[0m[0;34m.[0m[0mfind[0m[0;34m([0m[0;34m'div'[0m[0;34m,[0m[0;34m'detail__body-text itp_bodycontent'[0m[0;34m)[0m[0;34m.[0m[0mtext[0m[0;34m.[0m[0mreplace[0m[0;34m([0m[0;34m'\n'[0m[0;34m,[0m[0;34m''[0m[0;34m)[0m[0;34m.[0m[0mreplace[0m[0;34m([0m[0;34m'\t'[0m[0;34m,[0m [0;34m''[0m[0;34m)[0m[0;34m.[0m[0mreplace[0m[0;34m([0m[0;34m'[Gambas:Video 20detik]'[0m[0;34m,[0m [0;34m''[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'NoneType' object has no attribute 'text'
 

@@ -163,6 +163,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="PTA-Scraping.html">PTA-Scrapping</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas2_Pipeline.html">Tugas 2 PipeLine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="UTS_PTA.html">UTS PTA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GraphPegerank.html">Tugas Pagerank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scrapping_youtube.html">Scrapping data YouTube</a></li>
 </ul>
 
     </div>
@@ -369,15 +371,16 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: requests in /usr/local/lib/python3.9/dist-packages (2.25.1)
-Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /usr/local/lib/python3.9/dist-packages (from requests) (4.0.0)
-Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.9/dist-packages (from requests) (2.10)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.9/dist-packages (from requests) (2022.12.7)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.9/dist-packages (from requests) (1.26.14)
+Requirement already satisfied: requests in /usr/local/lib/python3.10/dist-packages (2.27.1)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests) (1.26.15)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests) (2022.12.7)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.10/dist-packages (from requests) (2.0.12)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests) (3.4)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.9/dist-packages (4.6.3)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.10/dist-packages (4.11.2)
+Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dist-packages (from beautifulsoup4) (2.4.1)
 </pre></div>
 </div>
 </div>
@@ -423,362 +426,26 @@ Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.9/dist-p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Presiden Macron Janji Segera Sahkan Hak untuk Aborsi di Prancis
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Beda dengan PDIP, PSI Tak Calegkan Anggota Kabinet Jokowi
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Paris - Presiden Prancis Emmanuel Macron menjanjikan akan mengesahkan perubahan konstitusi yang bisa memberikan hak untuk aborsi. Pengesahan itu disebut akan terjadi dalam beberapa bulan ke depan.Dilansir dari AFP, pada Rabu (8/3/2023), Macron mengatakan pemerintahnya akan mengajukan rancangan undang-undang yang mengabadikan hak aborsi dalam konstitusi Prancis dalam beberapa bulan.Dalam pidato penghormatan kepada mendiang Gisele Halimi, seorang aktivis feminis dan pelopor hak reproduksi, Macron mengatakan amandemen konstitusi akan diajukan ke parlemen.
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Partai Solidaritas Indonesia atau PSI memutuskan untuk tidak mencalegkan kadernya yang berada di Kabinet Jokowi. PSI menekankan Wakil Menteri dari PSI diminta fokus membantu Presiden Joko Widodo (Jokowi) menuntaskan persoalan.&quot;Wamen PSI adalah petugas rakyat yang diberikan amanah oleh Presiden Jokowi untuk bekerja ikhlas dan tuntas membantu Pak Menteri Hadi Tjajanto memperbaik sistem adminstrasi pertanahan di Indonesia,&quot; kata Jubir PSI, Aryo Bimmo, dalam keterangannya, Rabu (10/5/2023).Baca juga: PDIP Daftarkan Nama-nama Caleg ke KPU 11 Mei, Ada Menteri Kabinet JokowiAryo menyebut PSI tidak mengizinkan Wamen dari PSI untuk maju sebagai calon anggota DPR RI. PSI mendorong Wamen PSI menyelesaikan tugas yang diberikan oleh Jokowi.
     ADVERTISEMENT
   
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
         SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  Baca juga: Spanyol Sahkan UU Hak Transgender, Aborsi dan Cuti Haid&quot;Ini akan mengabadikan kebebasan perempuan untuk memilih aborsi, dan menjadi jaminan yang sungguh-sungguh bahwa tidak ada yang dapat membatasi atau menghapus hak ini karena itu tidak dapat diubah lagi,&quot; katanya.&quot;Hak perempuan selalu merupakan penaklukan yang rapuh,&quot; kata Macron.Diketahui, Majelis Nasional Prancis pada November 2022 telah memberikan suara mendukung perubahan konstitusi, tetapi tanpa memutuskan batas waktunya.Langkah ini dipercepat setelah Mahkamah Agung AS membatalkan hak aborsi pada bulan Juni, memicu tekanan dari para juru kampanye Prancis untuk melakukan sebaliknya sebagai simbol komitmennya terhadap hak-hak perempuan.(aik/aik)emmanuel macron macron aborsi hak aborsi prancis 
-PAN Kode Ganjar Sebagai Capres, Romy PPP: Offside!
+  &quot;Oleh karena itu Wamen PSI sebagai petugas rakyat tidak diizinkan partai untuk menjadi calon anggota legislatif. Wamen PSI harus fokus menyelesaikan tugas yang diberikan presiden mengadministrasikan keadilan di sektor pertanahan,&quot; ucapnya.Kondisi ini tentunya berbeda dengan partai lain. PDIP, misalnya, mendaftarkan kadernya, termasuk para menteri untuk maju di 2024.&quot;Pendaftaran seluruh calon anggota legislatif dari kabupaten, kota, dan provinsi dan tingkat pusat akan dilakukan secara serentak pada 11 Mei jam 10.00 tepat seluruh Indonesia akan melakukan pendaftaran,&quot; kata Hasto di Stadion Gelora Bung Karno (GBK), Jakarta, Senin (8/5).Namun, Hasto belum bisa membeberkan nama-nama caleg dari PDIP dan hanya mengindikasikan sosok itu berasal dari berbagai kalangan seperti akademisi, budayawan, hingga menteri era pemerintahan Joko Widodo (Jokowi)-Ma&#39;ruf Amin.Baca juga: PKPU 10/2023 Direvisi, KPU Beri Waktu Parpol Perbaiki Berkas BacalegNantinya, caleg yang diumumkan PDIP punya kewajiban untuk memenangkan capres.&quot;Siapa yang akan menjadi caleg nantinya juga akan menjadi pilar yang sangat penting di dalam pemenangan Bapak Ganjar Pranowo,&quot; tutur Hasto.&quot;Mengingat seluruh caleg bersama kepala daerah dan capres itu satu kesatuan, sehingga nama-nama siapa saja yang menjadi vote getters, nama-nama yang mewakili akademisi, dari tokoh budayawan, nama menteri dalam kabinet Pak Jokowi yang akan dicalonkan PDIP, pakar yang akan menjadi core penting dalam setiap komisi,&quot; pungkasnya.(maa/van)jokowi psi caleg 
+Rekening Kurus Para Dosen Pengamen
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Demonstran di Yunani Lempar Molotov, Polisi Tembakkan Gas Air Mata
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Terjadi kericuhan dalam demonstrasi di luar gedung parlemen Yunani, di Athena. Demonstrasn melempar molotov lalu dibalas dengan tembakkan gas air mata oleh polisi.Dilansir dari AFP, Polisi Yunani pada Rabu (8/3/2023), menembakkan gas air mata ke pengunjuk rasa yang melempar molotov. Demontrasi itu dilakukan di luar gedung Parlemen, di Athena, untuk protes kecelakaan maut kereta api minggu lalu.Lusinan pemuda bertopeng dan berpakaian hitam melemparkan bom molotov dan batu ke polisi anti huru hara di luar gedung. Diketahui, lebih dari 40.000 orang berdemonstrasi di ibu kota Yunani terkait kecelakaan pada 28 Februari yang menewaskan 57 orang.
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  Baca juga: Tabrakan Maut 2 Kereta di Yunani Berujung Pinta Maaf Perdana MenteriDemonstrasi Pada Hari MingguDemonstrasi terjadi pada Minggu (5/3/2023) waktu setempat di Athena, tepatnya di Lapangan Syntagma di sebelah parlemen, yang sudah menjadi tempat bentrokan antara polisi dan pengunjuk rasa yang marah pada Jumat malam.Pawai dan upacara menyalakan lilin telah diadakan untuk mengenang para korban kecelakaan. Banyak dari mereka adalah siswa yang kembali dari liburan akhir pekan.&quot;Apa yang terjadi bukanlah sebuah kecelakaan, itu adalah kejahatan,&quot; kata seorang pengunjuk rasa, Sophia Hatzopoulou, 23 tahun, seorang mahasiswa filsafat di Thessaloniki.&quot;Kita tidak bisa melihat semua ini terjadi dan tetap acuh tak acuh.&quot;Baca juga: PM Yunani Minta Maaf ke Keluarga Korban Tabrakan 2 KeretaPerdana Menteri Minta MaafPM Yunani Mitsotakis menyampaikan permohonaan maaf kepada seluruh warga Yunani.&quot;Sebagai perdana menteri, saya berutang kepada semua orang, tetapi terutama kepada kerabat korban, (untuk meminta) pengampunan,&quot; tulis Mitsotakis dalam pesan yang ditujukan kepada bangsa, dilansir AFP, Minggu (5/3).Baca juga: Polisi Yunani Geledah Stasiun Usai Tabrakan Maut 2 Kereta&quot;Untuk Yunani tahun 2023, dua kereta yang menuju ke arah yang berbeda tidak dapat berjalan di jalur yang sama dan tidak ada yang mengetahuinya,&quot; kata Mitsotakis dalam pesan yang diposting di halaman Facebook-nya.Tabrakan antara kereta penumpang dan barang itu telah memicu kemarahan yang meluas di seluruh Yunani. Kerabat dan orang-orang terkasih dari mereka yang tewas dalam kecelakaan kereta rencananya akan berkumpul di luar stasiun Larissa, Yunani tengah, dekat lokasi kecelakaan itu.(aik/aik)yunani athena kecelakaan kereta tabrakan kereta di yunani 
-Jaksa Agung ST Burhanuddin Raih Penghargaan Best Institutional Leaders
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Jaksa Agung ST Burhanuddin dinobatkan sebagai best institutional leaders oleh Obsession Media Group. Burhanuddin dipilih karena dinilai telah membawa Kejaksaan RI sebagai lembaga penegak hukum yang lebih baik.Penghargaan ini diberikan ke Burhanuddin pada Rabu (8/3/2023) di Hotel Indonesia Kempinski Jakarta Ballroom. Penghargaan ini diberikan kepada pemimpin lembaga/institusi yang telah memberikan kontribusi serta inspirasi melalui tindakan maupun pemikiran.&quot;Adapun dalam pertimbangannya, Obsession Media Group memutuskan penghargaan tersebut diberikan atas kinerja Jaksa Agung ST Burhanuddin yang telah membawa Kejaksaan RI sebagai lembaga penegak hukum yang lebih baik,&quot; kata Kapuspenkum Kejagung Ketut Sumedana kepada wartawan, Rabu (8/3/2023).
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  Baca juga: Survei LSI: 72% Responden Percaya Kejagung dalam Penegakan HukumKetut kemudian menjelaskan sejumlah survei menunjukkan Kejaksaan RI dianggap mampu mengusung penegakan hukum yang humanis dan modern. Dia menyebut, pada Survei Indikator Politik Indonesia pada 27 November 2022, tingkat kepercayaan publik terhadap kerja Kejaksaan mencapai 77,4 persen.Kemudian, katanya, jajak pendapat Lembaga Survei Indonesia pada 8 Desember 2022 mengenai tingkat kepercayaan terhadap lembaga negara dan institusi demokrasi memposisikan Kejaksaan sebagai lembaga penegak hukum dengan tingkat kepercayaan 60,6 persen.Selain itu, sejumlah penghargaan Internasional &quot;Special Achievement Award&quot; untuk pelaksanaan Restorative Justice dari International Association of Prosecutors (IAP) dan penghargaan atas efektivitas penerapan efektivitas Restorative Justice menjadi salah satu yang terbaik di dunia dari United Nations Office on Drugs and Crime (UNODC).Baca juga: MAKI Laporkan Dugaan Penyimpangan Penagihan Pajak Rp 1,7 T ke Kejagung(zap/haf)jaksa agung st burhanuddin kejagung 
-Kejati Banten dan Bank BJB Teken MOU Pendampingan Hukum
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Serang - Kejaksaan Tinggi (Kejati) Banten dan direksi Bank BJB meneken MoU untuk pendampingan hukum urusan keperdataan dan tata usaha negara. Salah satunya adalah penerapan pendampingan hukum untuk masalah kredit macet.Perjanjian kerja sama ini dilakukan di Kejati Banten Jalan Serang-Pandeglang. Hadir Direktur Utama Bank BJB Yuddy Renaldi dan Kajati Didik Farkhan Alisyahdi.&quot;Ini merupakan kelanjutan dari MoU yang sudah kita lakukan, Pak Kajati dan seluruh untuk Kejaksaan Tinggi Banten adalah bagaimana mensupport BJB dalam keperdataan dan tata usaha negara,&quot; kata Yuddy kepada wartawan, Rabu (8/3/2023).
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  Baca juga: Berkas Lengkap, Kasus Pengoplosan 350 Ton Beras Bulog Segera DisidangPerjanjian juga salah satunya untuk mendapatkan pertimbangan hukum untuk masalah kredit macet di BUMD ini. MoU ini juga katanya sudah memiliki payung kerja sama antara BJB dan Kejaksaan Agung.&quot;Justru salah satu yang utamanya kami ingin suport terutama tadi atas persetujuan Pak Kajati di unsur perdatanya dan usaha negaranya termasuk juga masalah yang berkaitan bagaimana menyelesaikan kredit bermasalah di Bank BJB,&quot; paparnya.Sementara, Kajati Didik menambahkan, setelah MoU kerja sama bisa dilakukan dengan pembuatan Surat Kuasa Khusus atau SKK. SKK ini sebagai tindak lanjut misalnya untuk pendampingan masalah kredit.Baca juga: Eks Karyawan Bank di Tangerang yang Bobol Dana Nasabah Jadi Tersangka TPPU&quot;Kita siap untuk membantu supaya menjadi bank yang memang terpercaya,&quot; tambahnya.Kerja sama ini juga perpanjangan yang telah dilakukan oleh Kajati sebelum dirinya. Karena prinsipnya kejaksaan bisa melakukan bantuan hukum litigasi dan non litigasi.&quot;Karena sebagai pengacara negara pemerintah dan BUMN dan BUMD bisa memberi kepada kita kuasa di bidang datun, ke depan kita akan otomatis kalau diberi kuasa khusus kita akan membantu yang memberi kuasa itu, misalnya di permasalahan-permasalahan yang timbul,&quot; katanya.(bri/aik)kejati banten bank bjb serang mou 
-Polisi Bakar Ladang Ganja 11 Hektar
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kapolres Jakbar Diminta Aktifkan Polsubsektor di Tambora untuk Cegah Tawuran
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Tawuran masih menjadi masalah sosial yang terjadi di beberapa wilayah DKI Jakarta, salah satunya di Tambora, Jakarta Barat. Menghadapi persoalan tersebut, warga meminta polisi untuk mengaktifkan kembali Polsubsektor.Hal tersebut diungkapkan oleh warga saat bertatap muka dengan Kapolres Metro Jakarta Barat, Kombes M Syahduddi, di RW 01 Jembatan Besi, Tambora, Jakarta Barat. Ini adalah kegiatan perdana Kombes Syahduddi setelah resmi dilantik menjabat Kapolres Metro Jakarta Barat menggantikan Kombes Pasma Royce.&quot;Saya sebagai Kapolres Metro Jakarta Barat yang baru memohon kerja samanya, Polri bisa selalu bersinergi dengan masyarakat dalam menjaga kamtibmas di lingkungan dan saya menerima saran, masukan, kritik dari warga tentang pelayan Polisi di Polres Jakarta Barat,&quot; ujar Syahduddi dalam keterangannya Rabu (8/3/2023).
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  Dalam kunjungannya ke RW 01, Jembatan Besi, Tambora, Syahdudi berbincang dengan lurah dan warga selama 3 jam. Dia membahas situasi warga jelang Ramadhan.Dalam kesempatan tersebut, dia mendapat masukan terkait kebijakan jangka pendek ke depan. Salah satunya mengaktifkan Polsubsektor untuk mencegah aksi tawuran.Baca juga: Konvoi Cari Lawan, 8 Remaja Bersenjata di Jakbar Diamankan PolisiKapolres Jakbar (Foto: (Foto: Dok. Istimewa)&quot;Saran masukan dari warga yang saya terima antara lain untuk mengaktifkan kembali Polsubsektor dan pos pantau dalam mempermudah pelayanan ke masyarakat dan pencegahan terjadinya tawuran di wilayah Tambora,&quot; kata dia.&quot;Segera kami ambil kebijakan untuk menjawab masukan warga ini,&quot; jelasnya.Sementara itu, Kapolsek Tambora, Kompol Putra Pratama yang turut hadir dalam kegiatan tersebut menyampaikan bahwa polisi tak bisa bekerja sendiri. Dia menyampaikan jika ada 96 polisi di setiap RW di Tambora.&quot;Saat ini sudah ada satu polisi di setiap RW di seluruh wilayah Tambora untuk membantu menjaga Kamtibmas di wilayahnya. Polri tetap tidak akan bisa bekerja maksimal tanpa adanya dukungan dari masyarakat dalam menjaga situasi Kamtibmas yang aman dan kondusif,&quot; pungkasnya.Baca juga: Polisi Tangkap 10 Orang Terkait Penusukan Dipicu Isu &#39;Open BO&#39; di Jakbar!(mei/mea)kapolres jakbar kombes m syahduddi tawuran polres jakbar jabodetabek 
-Nasib Vonis Mati Sambo Diketok Sebulan Lagi
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta -  Nasib vonis banding mantan Kadiv Propam Polri Ferdy Sambo atas vonis mati dalam kasus pembunuhan berencana terhadap ajudannya, Brigadir Yosua Hutabarat tinggal diketok sebulan lagi. Putusan banding Sambo akan dibacakan majelis hakim Pengadilan Tinggi Jakarta pada 12 April 2023 secara terbuka untuk umum.Sambo tak sendirian dalam mengajukan upaya hukum banding. Tiga terdakwa lainnya, yakni istri Sambo, Putri Candrawathi, kemudian sopir keluarga Sambo yakni Kuat Ma&#39;ruf, dan mantan ajudan Sambo yaitu Bripka Ricky Rizal, juga melakukan perlawanan atas vonis yang diterima mereka.Baca juga: Putusan Banding Vonis Mati Sambo Akan Dibacakan Terbuka untuk UmumSebagai informasi, Ferdy Sambo dkk dinyatakan bersalah melakukan pembunuhan berencana terhadap Brigadir Yosua Hutabarat. Berikut putusan dan tuntutan untuk para terdakwa dalam kasus pembunuhan Yosua:
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  1. Ferdy Sambo dituntut penjara seumur hidup, divonis hukuman mati2. Putri Candrawathi dituntut 8 tahun penjara, divonis 20 tahun penjara3. Kuat Ma&#39;ruf dituntut 8 tahun penjara, divonis 15 tahun penjara4. Bripka Ricky Rizal dituntut 8 tahun penjara, divonis 13 tahun penjara5. Bharada Richard Eliezer dituntut 12 tahun penjara, divonis 1,5 tahun penjara (Tidak mengajukan banding).Berkas permohonan banding Ferdy Sambo saat ini tengah ditangani majelis hakim Pengadilan Tinggi Jakarta. Putusan banding Sambo akan dibacakan pada 12 April 2023.&quot;Putusan akan dibacakan pada persidangan yang terbuka untuk umum pada hari Rabu tanggal 12 April 2023 di ruang sidang pada gedung Pengadilan Tinggi Jakarta,&quot; kata Pejabat Humas PT Jakarta Binsar Pamopo Pakpahan kepada detikcom, Rabu (8/3/2023).Baca juga: Korban Indosurya Bandingkan Kasusnya dengan Sambo: Hari Tua Saya DirampokBukan hanya Ferdy Sambo, di hari itu juga PT Jakarta juga akan memutuskan vonis banding terhadap Putri Candrawathi, Kuat Ma&#39;ruf, dan Ricky Rizal.Binsar menerangkan saat ini majelis hakim sudah memulai meneliti berkas tersebut. Hakim akan bermusyawarah untuk mengambil keputusan.&quot;Perkara-perkara pidana banding atas nama para Terdakwa Ferdy Sambo dan kawan-kawan sudah diterima dan sudah diregister, bahkan sudah ditangani oleh majelis hakim yang ditunjuk,&quot; kata Binsar.&quot;Mempelajari berkas perkara sudah dimulai dan selanjutnya majelis hakim akan bermusyawarah untuk mengambil suatu keputusan,&quot; imbuhnya.Baca juga: Eks Anak Buah Sambo yang Lawan Vonis Hanya Agus dan Hendra KurniawanSiapa hakim yang mengadili Sambo di tingkat banding? Baca di halaman berikutnya&gt;&gt;Halaman                1                            2                        Selanjutnya ferdy sambo sambo putri candrawathi kuat maruf ricky rizal kasus pembunuhan brigadir yosua brigadir yosua hutabarat sidang ferdy sambo kasus ferdy sambo pengadilan tinggi jakarta jakarta 
-Belum Tuntas Rafael Alun Kini Terungkap Transaksi Janggal Rp 300 Triliun
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta -  Kasus soal harta tak wajar mantan pejabat Ditjen Pajak Rafael Alun terus bergulir. Kini, terungkap pula transaksi janggal Rp 300 triliun di Kemenkeu.Sebagaimana diketahui, Rafael Alun harus rela melepas jabatannya sebagai Kepala Bagian Umum Kanwil Ditjen Pajak Jakarta Selatan II buntut perkara Mario Dandy yang menganiaya David. Sorotan tajam memang mengarah ke Rafael Alun setelah ulah Mario Dandy terungkap.
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  Baca juga: KPK Ungkap Profil Konsultan Pajak yang Kerja untuk Rafael AlunUsut punya usut, Laporan Harta Kekayaan Penyelenggara Negara (LHKPN) senilai Rp 56,1 miliar yang dilaporkan Rafael pada 2021 ke KPK dinilai janggal. Aset kekayaan dan profil pekerjaan Rafael dinilai tidak selaras.Rafael lalu dipanggil tim Direktorat LHKPN KPK pada Rabu (1/3). Dia diperiksa selama 8,5 jam oleh tim KPK. Belakangan diketahui, Rafael diduga melakukan pencucian uang dengan bantuan profesional.Temuan soal peran profesional dalam dugaan pencucian uang Rafael ini diungkap oleh PPATK. PPATK menilai ada peran pencucian uang profesional dalam aset Rafael.Advertisement&quot;Kita mensinyalir ada PML (professional money launderer) yang selama ini bertindak untuk kepentingan RAT,&quot; kata Kepala PPATK Ivan Yustiavandana saat dihubungi detikcom, Jumat (3/3/2023).Selain itu, ada nomor rekening terkait Rafael yang telah diblokir oleh PPATK. Rekening ini diduga merupakan rekening konsultan pajak itu.Berapa nilai transaksi rekening tersebut? Baca halaman selanjutnya.Halaman                1                            2                            3                        Selanjutnya rafael alun rafael alun triasambodo rafael alun trisambodo kemenkeu kpk ppatk round-up 
-4 Fakta Halilintar Dufan Berhenti Mendadak Saat Menanjak
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta -  Wahana Halilintar di Dufan (Dunia Fantasi) mati dalam posisi menanjak. Momen ini terekam dalam sebuah video dan viral di media sosial.Dalam video yang dilihat, Rabu (8/3/2023), terlihat wahana Halilintar itu berhenti di atas rel. Pengunjung juga tampak terjebak dalam posisi miring.Baca juga: Dufan Ramai Diserbu Pengunjung, Sejumlah Wahana Permainan Antre Panjangdetikcom merangkum empat fakta atas kejadian ini, simak sebagai berikut:
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  1. Ancol Minta MaafAriyadi Eko Nugroho selaku Corporate Communication PT Pembangunan Jaya Ancol Tbk menjelaskan peristiwa itu terjadi pada Selasa (7/3) lalu, sekitar pukul 14.00 WIB. Eko menyampaikan permintaan maaf kepada pengunjung atas ketidaknyamanan itu.&quot;Terkait dengan video wahana Halilintar di media sosial yang menunjukkan wahana tersebut berhenti di posisi menanjak pada tanggal 7 Maret 2023 sekitar pukul 14.00 WIB, kami memohon maaf atas ketidaknyamanan yang dialami pengunjung,&quot; kata Eko.Baca juga: 4 Fakta Wahana Tornado Dufan Berhenti di Atas Saat Ada Pengunjung2. Langsung DievakuasiEko mengungkapkan, pada saat kejadian, semua pengunjung sudah dievakuasi sesuai dengan SOP. Eko menyebutkan semua pengunjung dalam keadaan tanpa cedera sedikit pun.&quot;Seluruh pengunjung wahana Halilintar pada saat kejadian sudah di evakuasi sesuai SOP dalam keadaan baik tanpa ada cedera sedikit pun,&quot; kata Eko.Baca selengkapnya di halaman selanjutnya..Halaman                1                            2                        Selanjutnya dufan halilintar ancol viral round-up 
-Menhan AS Lloyd Austin Melawat ke Timur Tengah
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Kepada Perdana Menteri Mohammed Shia al-Sudani, Lloyd Austin mengklaim militer Amerika Serikat &quot;siap bertahan&quot; di Irak jika diinginkan pemerintah. Isu ini memicu polemik di Irak dan ramai diperdebatkan.Kunjungan tersebut bertepatan jelang peringatan 20 tahun invasi darat militer AS pada 20 Maret mendatang.&quot;Saya merasa optimis akan masa depan kemitraan ini,&quot; kata Austin usai bertemu Perdana Menteri dan Menhan Thabet al-Abbasi di Baghdad.
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  &quot;Amerika Serikat akan terus memperkuat dan memperluas kemitraan demi mendukung keamanan, stabilitas dan kedaulatan Irak.&quot;Ancaman kelompok pro-IranTawaran diplomatik itu disambut PM al-Sudani , yang juga mengutarakan niat untuk &quot;memperkuat dan mengkonsolidasikan relasi&quot; dengan Washington, dengan dasar komitmen Irak untuk &quot;menjaga keseimbangan antara kekuatan regional dan internasional.&quot;Sejak kejatuhan diktator Saddam Hussein pada 2003, Irak diperintah oleh mayoritas Syiah melalui pembagian kekuasaan dengan berbagai kelompok agama. Kedekatan alami dengan Iran, musuh bebuyutan Amerika Serikat, mensyaratkan kelihaian diplomasi oleh pemerintah di Baghdad.Pada 2017 lalu, kedua negara menyuplai Irak dengan senjata dan intelijen saat melancarkan serangan balik untuk merebut wilayah yang diduduki Islamic State sejak 2014. Hasilnya, kelompok jihadis itu kini terpaksa bersembunyi di wilayah pegunungan antara Irak dan Suriah.Irak mengumumkan berakhirnya operasi militer koalisi bentukan AS di penghujung 2021. Namun demikian, sebanyak 2.500 serdadu AS masih bertahan untuk menyediakan jasa konsultasi atau pelatihan.&quot;Kita harus mampu beroperasi secara aman dan melanjutkan pekerjaan vital ini,&quot; kata Austin.Jaminan stabilitas di KurdistanSejak beberapa tahun terakhir, pangkalan militer AS di Irak acap menjadi sasaran serangan drone atau roket, yang diduga dilancarkan oleh faksi pro-Iran. Menhan Austin sebabnya berterima kasih kepada pemerintah Irak atas &quot;komitmennya melindungi pasukan koalisi dari ancaman aktor negara atau non-negara.&quot;Lloyd Austin sebelumnya melawat ke Yordania untuk bertemu Raja Abdullah II. Di sana, dia mengutarakan &quot;kekhawatiran atas beragam tantangan bersama, menjaga fokus terhadap keamanan dan stabilitas di Irak, serta memerangi aktivitas yang mengancam stabilitas di kawasan,&quot; tulis Kementerian Pertahanan AS dalam keterangan persnya.Pengusiran terhadap pasukan koalisi terutama digencarkan kelompok pro-Iran, terutama Hashed al-Shaabi, induk organisasi paramiliter yang beranggotakan 128.000 gerilayawan didikan Garda Revolusi Iran.Austin juga menyempatkan berkunjung ke wilayah otonomi Kurdistan di utara Irak. Bersama Presiden Nechirvan Barzani, dia mengimbau agar relasi antara pemerintah otonomi dan pusat diperkuat.&quot;Bagi Irak, agar bisa memanfaatkan potensinya secara maksimal, Erbil dan Baghdad harus bekerja sama untuk kemaslahatan semua warga,&quot; kata Austin.rzn/hp (afp,ap)(haf/haf)dw news dw menhan as 
-Momen AG Pelaku Anak di Kasus Mario Dandy Muncul Usai Pemeriksaan
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jika Diperlukan, Penahanan AG Pacar Mario Dandy Bisa Diperpanjang 8 Hari
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta -  Perempuan berinisial AG (15) ditahan di Lembaga Penyelenggara Kesejahteraan Sosial (LPKS) selama 7 hari buntut kasus Mario Dandy Satriyo (20) menganiaya Cristalino David Ozora (17). Polisi menyebut masa penahanan AG dapat diperpanjang jika diperlukan.&quot;Dan apabila mungkin nanti tidak cukup akan bisa diperpanjang lagi 8 hari oleh pihak kejaksaan,&quot; kata Dirkrimum Polda Metro Jaya Kombes Hengki Haryadi dalam jumpa pers, Rabu (8/3/2023).Penahanan diputuskan setelah penyidik memeriksa AG selama 6 jam sebagai pelaku anak. AG ditahan selama 7 hari ke depan.
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  Baca juga: 23 Adegan Akan Diperagakan di Rekonstruksi Mario Dandy Aniaya David&quot;Kita laksanakan penahanan di lembaga penyelenggara kesejahteraan sosial (LPKS) selama 7 hari dari kewenangan penyidik melakukan penahanan,&quot; kata dia.Pemeriksaan AG hari ini dilakukan dengan pendampingan dari Bapas hingga Kementerian PPPA. Pemeriksaan ini sendiri dilakukan dengan pertimbangan kenyamanan dengan memperhatikan hak-hak anak.&quot;Artinya menjamin terpenuhinya hak-hak anak yang diatur dalam Sistem Peradilan Anak. Didampingi selain dari lawyer, Bapas Jaksel dan untuk menjamin pemenuhan hak anak kami didampingi tim dari KemenPPPA dalam rangka pendampingan psikososial menjamin pemenuhan hak anak,&quot; tuturnya.Baca juga: Polisi Tak Ungkap ke Publik soal Chat &#39;Jebakan&#39; AG, Ini AlasannyaSimak berita selengkapnya di halaman selanjutnya.Halaman                1                            2                        Selanjutnya mario dandy satriyo mario dandy satrio mario dandy satrio tersangka penganiayaan david oleh mario dandy satrio jabodetabek david korban anak pejabat pajak anak pejabat pajak tersangka kementerian pppa 
-Ketua F-NasDem MPR Minta KPU Ajukan Banding Putusan Tunda Pemilu
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Ketua Fraksi Partai Nasdem MPR RI, Taufik Basari menilai salah satu putusan hakim Pengadilan Negeri Jakarta Pusat (PN Jakpus) yang menghentikan proses tahapan pemilu tidak masuk akal. Menanggapi hal tersebut, ia menilai jalan keluarnya adalah KPU mengajukan banding.&quot;Apa yang harus dilakukan adalah KPU mengajukan banding. Satu-satunya jalan adalah banding. Memori banding KPU harus kuat. KPU jangan masuk angin. Jangan sampai memori banding KPU lemah, yang akhirnya PT memperkuat putusan PN Jakpus. Jangan sampai seperti itu,&quot; kata Taufik dalam keterangannya, Rabu (8/3/2023).Dalam acara yang mengusung tema &#39;Memaknai Konstitusi Dalam Sistem Peradilan Pemilu&#39; tersebut, Taufik menuturkan selama ini sudah muncul wacana untuk menunda Pemilu melalui berbagai isu. Mulai dari isu amandemen, isu soal ekonomi, dan juga soal stabilitas.
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  &quot;Artinya isu penundaan pemilu bukan barang baru, tapi sudah ada dan sudah diupayakan dengan berbagai cara. Isu ini semakin kuat dengan adanya putusan PN Jakpus,&quot; ujarnya.Baca juga: NasDem Minta Partai Prima Cabut Gugatan Terhadap KPU Agar Pemilu Tak DitundaIa melanjutkan permasalahannya terletak pada putusan (petitum kelima) PN Jakpus yang menyatakan menghentikan proses tahapan pemilu dan memulai sejak awal selama 2 tahun 4 bulan 7 hari.&quot;Ini yang menjadi masalah. Kalau putusannya memulihkan Partai Prima itu tidak jadi soal. Tapi ini putusannya sudah melebar keluar dari konteks perdata yang berakibat pada penundaan pemilu,&quot; terangnya.Taufik menambahkan putusan majelis hakim PN Jakpus itu menimbulkan pertanyaan dan dinilai tidak masuk akal.&quot;Kok sampai segitunya majelis hakim mengabulkan petitum yang meminta agar proses tahapan pemilu ini dihentikan. Ini tidak masuk akal. Apalagi memerintahkan proses sejak awal, dari mulai perencanaan hingga pelantikan,&quot; pungkasnya.Sementara itu, Wakil Ketua Fraksi Gerindra MPR RI, Habiburokhman juga mengatakan keputusan hukum harus dilawan secara hukum. Menurutnya banyak yang menilai putusan PN Jakpus janggal dan ada yang bermain di balik putusan tersebut.&quot;Sikap yang benar adalah berbagai pendapat itu disampaikan ke KPU dan kuasa hukum KPU untuk bahan memori banding. Sehingga memori banding menjadi berkualitas,&quot; katanya.Baca juga: Ketum Prima Balas Mahfud soal Ada Permainan di Balik Putusan Tunda PemiluSikap Partai Gerindra, lanjut Habiburokhman, tetap pada komitmen Pemilu 2024. &quot;Kita mendukung KPU untuk mengajukan banding,&quot; ucapnya.Pada kesempatan yang sama, Pakar Hukum Tata Negara Refly Harun menilai petitum kelima sudah diluar kewenangan PN Jakpus. Ia juga menyoroti akan keputusan hakim tersebut.&quot;Saya mengatakan terus terang saja ini keputusan gila, terutama amar kelima yang memerintahkan diulang dari awal selama 2 tahun 4 bulan 7 hari. Itu keputusan gila,&quot; katanya.Ia pun memberikan dua kemungkinan penilaian kepada hakim yang memutus perkara itu. &quot;Pertama, hakimnya bodoh banget. Kedua, ada intervensi dari pihak lain atau kongkalikong,&quot; ujarnya.Kendati demikian, Refly menilai tidak mungkin jika hakimnya bodoh. Sebab, hakim tersebut senior dengan pangkat IVC dan IV D.&quot;Rasanya tidak mungkin. Maka yang menganggap ada yang kedua. Tetapi sekali lagi ini analisis. Wah ini hakimnya bodoh banget, tapi tidak mungkin. Pasti ada yang kedua (intervensi),&quot; tuturnya.&quot;Kalau hakimnya memutus secara profesional, jujur, dan independen, maka dia akan sampai pada kesimpulan, dia tidak berwenang. Anak yang baru belajar hukum pemilu juga paham bahwa pengadilan negeri tidak berwenang menyidangkan sengketa hasil pemilu,&quot; imbuhnya.Ketua Umum Partai Prima, Agus Jabo Priyono pun mengklarifikasi bahwa gugatan Partai Prima adalah untuk bisa mengikuti Pemilu 2024, bukan untuk menunda Pemilu. Permohonan gugatan ke Pengadilan Negeri juga bukan permohonan sengketa pemilu.Baca juga: Habiburokhman Sedih Mahfud Bicara Ada Main di Balik Putusan Tunda Pemilu&quot;Ini yang sering di salah pahami, sehingga publik sangat reaktif. Kami mengajukan permohonan perbuatan melawan hukum yang dilakukan KPU karena KPU bertindak tidak profesional dalam verifikasi administrasi terhadap partai politik,&quot;jelasnya.Agus Jabo mengaku pihaknya sudah melalui lembaga yang diatur undang-undang dalam menangani sengketa pemilu, yaitu ke Bawaslu dan PTUN, namun segala upaya itu tidak berhasil.&quot;Jadi ini bukan proses yang tiba-tiba, tapi proses yang panjang untuk mendapatkan keadilan politik dan sudah melalui mekanisme yang diatur undang-undang. Kami ingin menegaskan bahwa agenda kami hanya ingin berpartisipasi dalam Pemilu 2024, bukan untuk menunda pemilu,&quot; tukasnya.Sebagai informasi, diskusi ini digelar hasil kerja sasama Koordinatoriat Wartawan Parlemen (KWP) dengan Biro Hubungan Masyarakat dan Sistem Informasi Sekretariat Jenderal MPR RI. Diskusi ini menghadirkan narasumber Wakil Ketua Fraksi Gerindra MPR RI Habiburokhman Ketua Umum Partai Prima Agus Jabo Priyono, dan Pakar Hukum Tata Negara Refly Harun.(ncm/ega)nasdem pemilu mpr 
-Rommy Ungkap Hasto Sudah Ajak PPP Gabung Koalisi PDIP di Pilpres 2024
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Ketua Majelis Pertimbangan PPP M Romahurmuziy atau Rommy menyebut Sekjen PDIP Hasto Kristiyanto sudah mengajak PPP berkoalisi. Dia menyebut Hasto telah menemui dirinya.&quot;Kemarin Mas Hasto ketemu dengan saya, beliau mengulangi ajakannya kepada PPP untuk bergabung dan berkoalisi dengan PDIP,&quot; kata Rommy dalam acara &#39;Adu Perspektif: Dilema Koalisi, Nasib Pemilu, dan Pengganti Jokowi&#39; yang ditayangkan detikcom, Rabu (8/3/2023).Baca juga: Rommy Bicara 2 Skenario Jokowi di Pemilu 2024Rommy mengaku bukan hanya sekali diajak berkoalisi dengan PDIP. Dia mengatakan PDIP dan PPP memiliki sejarah kebersamaan sejak dulu.
-      @import url(&quot;https://awscdnstatic.detik.net.id/live/_rmbassets/2022/parallax/parallax.css&quot;);
-
-    ADVERTISEMENT
-  
-    googletag.cmd.push(function() { googletag.display(&#39;div-gpt-ad-1572507980488-0&#39;); });
-  
-        SCROLL TO RESUME CONTENT
-  
-  function paraA(e) {
-  var p = $(e);
-  $(e + &quot; .para_fix&quot;).width(p.width());
-  }
-  $(&quot;.paraA iframe&quot;).on(&quot;load&quot;, paraA(&quot;.paraA&quot;));
-  &quot;Iya memang mengajak dan bukan baru kali ini, karena Waktu Ketum (PPP) Pak Suharso, Plt, Pak Suharso juga diajak yang sama. Dan saya juga kebetulan mendampingi Pak Suharso juga dan narasi yang dibangun Mas Hasto selalu jelas, bahwa ini ada amanat dari Mbah Maimun kita punya pengalaman lama, karena PPP dilahirkan oleh NU, PNI kan sejak dulu dengan NU, PDIP juga punya sejarah dengan PPP Mega-Hamzah, dan sekarang di Jateng Ganjar-Yasin, bahkan itu putranya Mbah Maimun, jadi segmen partai nggak bersinggungan, saling melengkapi,&quot; kata Rommy.&quot;Orang mungkin nggak suka dengan PDIP, tapi wakilnya, nah gitu biarlah yang asosiasinya religiusitas karena bangsa ini dibangun 2 pilar, nasionalisme dan religiusitas,&quot; tambahnya.Baca juga: Rommy: PPP Mau Jadi Pemegang Saham Seri A Capres PemenangMenurutnya, bukan suatu hal yang salah jika PPP bergabung dengan PDIP. Namun, saat ini PPP masih menimbang karena PDIP belum meresmikan siapa capresnya dan PPP sudah berada di Koalisi Indonesia Bersatu (KIB).&quot;Menurut saya dalam konteks ini tidak kemudian kontraproduktif kalau koalisi sama PDIP, karena memang selama inu sejarah ada. Bahkan oleh putranya Mbah Maimun sendiri, jadi kalau hari ini kita gabung menerima ajakan PDIP tentu pertama kita bicarakan ini bersama KIB nggak, karena kita sekarang masih di KIB. Kedua, calon presiden ente siapa, kalau capres Ganjar, KIB oke nggak? Pak Zul (Zulkifli Hasan) jelas oke, Pak Airlangga oke nggak? Kalau sudah oke, kita bicara cawapres siapa, karena kita nggak tahu Ganjar benar nggak dicalonkan PDIP,&quot; tutur Rommy.Baca juga: Rommy Bicara Potensi KIB Pecah, Singgung Beda Capres Golkar dan PAN(zap/haf)ppp pdip pilpres 2024 koalisi 
-Pertimbangan Polisi Tahan AG di Kasus Penganiayaan David
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">e4af2018265a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">judul2</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">,</span><span class="s1">&#39;media__title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="nb">print</span><span class="p">(</span><span class="n">judul2</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">18</span>     <span class="n">req2</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">AttributeError</span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-e4af2018265a&gt;</span> in <span class="ni">&lt;cell line: 9&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">req2</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">soup2</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req2</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="n">judul</span> <span class="o">=</span> <span class="n">soup2</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;detail__title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">20</span>     <span class="n">judul</span> <span class="o">=</span> <span class="n">soup2</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;detail__title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>       <span class="n">isi</span> <span class="o">=</span> <span class="n">soup2</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span><span class="s1">&#39;detail__body-text itp_bodycontent&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[Gambas:Video 20detik]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span> 
-<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;allow_redirects&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">76</span>     <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span> 
-<span class="g g-Whitespace">     </span><span class="mi">78</span> 
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="c1"># cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="k">with</span> <span class="n">sessions</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">61</span>         <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span> 
-<span class="g g-Whitespace">     </span><span class="mi">63</span> 
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">541</span>         <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">542</span>         <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">543</span> 
-<span class="g g-Whitespace">    </span><span class="mi">544</span>         <span class="k">return</span> <span class="n">resp</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">675</span>             <span class="c1"># Redirect resolving generator.</span>
-<span class="g g-Whitespace">    </span><span class="mi">676</span>             <span class="n">gen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolve_redirects</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">677</span>             <span class="n">history</span> <span class="o">=</span> <span class="p">[</span><span class="n">resp</span> <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">678</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">679</span>             <span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/sessions.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">675</span>             <span class="c1"># Redirect resolving generator.</span>
-<span class="g g-Whitespace">    </span><span class="mi">676</span>             <span class="n">gen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolve_redirects</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">677</span>             <span class="n">history</span> <span class="o">=</span> <span class="p">[</span><span class="n">resp</span> <span class="k">for</span> <span class="n">resp</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">678</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">679</span>             <span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/sessions.py</span> in <span class="ni">resolve_redirects</span><span class="nt">(self, resp, req, stream, timeout, verify, cert, proxies, yield_requests, **adapter_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span>             <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span> 
-<span class="ne">--&gt; </span><span class="mi">237</span>                 <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span>                     <span class="n">req</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span>                     <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">,</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span> 
-<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="c1"># Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">655</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">656</span> 
-<span class="g g-Whitespace">    </span><span class="mi">657</span>         <span class="c1"># Total elapsed time of the request (approximately)</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">437</span>         <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">chunked</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">439</span>                 <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">440</span>                     <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span>                     <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">701</span> 
-<span class="g g-Whitespace">    </span><span class="mi">702</span>             <span class="c1"># Make the request on the httplib connection object.</span>
-<span class="ne">--&gt; </span><span class="mi">703</span>             <span class="n">httplib_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span>                 <span class="n">conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="n">method</span><span class="p">,</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">384</span>         <span class="c1"># Trigger any extra validation we need to do.</span>
-<span class="g g-Whitespace">    </span><span class="mi">385</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">386</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_validate_conn</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">387</span>         <span class="k">except</span> <span class="p">(</span><span class="n">SocketTimeout</span><span class="p">,</span> <span class="n">BaseSSLError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">388</span>             <span class="c1"># Py2 raises this as a BaseSSLError, Py3 raises it as socket timeout.</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1040</span>         <span class="c1"># Force connect early to allow us to validate the connection.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1041</span>         <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s2">&quot;sock&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>  <span class="c1"># AppEngine might not have  `.sock`</span>
-<span class="ne">-&gt; </span><span class="mi">1042</span>             <span class="n">conn</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1043</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1044</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">conn</span><span class="o">.</span><span class="n">is_verified</span><span class="p">:</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span>             <span class="n">context</span><span class="o">.</span><span class="n">load_default_certs</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">413</span> 
-<span class="ne">--&gt; </span><span class="mi">414</span>         <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="n">ssl_wrap_socket</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">415</span>             <span class="n">sock</span><span class="o">=</span><span class="n">conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span>             <span class="n">keyfile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key_file</span><span class="p">,</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/util/ssl_.py</span> in <span class="ni">ssl_wrap_socket</span><span class="nt">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span> 
-<span class="g g-Whitespace">    </span><span class="mi">448</span>     <span class="k">if</span> <span class="n">send_sni</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">449</span>         <span class="n">ssl_sock</span> <span class="o">=</span> <span class="n">_ssl_wrap_socket_impl</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span>             <span class="n">sock</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">tls_in_tls</span><span class="p">,</span> <span class="n">server_hostname</span><span class="o">=</span><span class="n">server_hostname</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/util/ssl_.py</span> in <span class="ni">_ssl_wrap_socket_impl</span><span class="nt">(sock, ssl_context, tls_in_tls, server_hostname)</span>
-<span class="g g-Whitespace">    </span><span class="mi">491</span> 
-<span class="g g-Whitespace">    </span><span class="mi">492</span>     <span class="k">if</span> <span class="n">server_hostname</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">493</span>         <span class="k">return</span> <span class="n">ssl_context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">server_hostname</span><span class="o">=</span><span class="n">server_hostname</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">495</span>         <span class="k">return</span> <span class="n">ssl_context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
-
-<span class="nn">/usr/lib/python3.9/ssl.py</span> in <span class="ni">wrap_socket</span><span class="nt">(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)</span>
-<span class="g g-Whitespace">    </span><span class="mi">499</span>         <span class="c1"># SSLSocket class handles server_hostname encoding before it calls</span>
-<span class="g g-Whitespace">    </span><span class="mi">500</span>         <span class="c1"># ctx._wrap_socket()</span>
-<span class="ne">--&gt; </span><span class="mi">501</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sslsocket_class</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">502</span>             <span class="n">sock</span><span class="o">=</span><span class="n">sock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">503</span>             <span class="n">server_side</span><span class="o">=</span><span class="n">server_side</span><span class="p">,</span>
-
-<span class="nn">/usr/lib/python3.9/ssl.py</span> in <span class="ni">_create</span><span class="nt">(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1039</span>                         <span class="c1"># non-blocking</span>
-<span class="g g-Whitespace">   </span><span class="mi">1040</span>                         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;do_handshake_on_connect should not be specified for non-blocking sockets&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1041</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1042</span>             <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1043</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="nn">/usr/lib/python3.9/ssl.py</span> in <span class="ni">do_handshake</span><span class="nt">(self, block)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1308</span>             <span class="k">if</span> <span class="n">timeout</span> <span class="o">==</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">block</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1309</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1310</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1311</span>         <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1312</span>             <span class="bp">self</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;text&#39;
 </pre></div>
 </div>
 </div>
