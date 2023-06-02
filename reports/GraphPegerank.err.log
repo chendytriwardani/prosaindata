@@ -15,22 +15,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-document = readDoc("docBerita.txt")
-
+sentence_array = sorted(((ranks[i], s) for i, s in enumerate(sentences_list)), reverse=True)
+sentence_array = np.asarray(sentence_array)
 ------------------
 
 
 [0;31m[0m
-[0;31mFileNotFoundError[0mTraceback (most recent call last)
-[0;32m<ipython-input-9-7be339a8aa7f>[0m in [0;36m<cell line: 1>[0;34m()[0m
-[0;32m----> 1[0;31m [0mdocument[0m [0;34m=[0m [0mreadDoc[0m[0;34m([0m[0;34m"docBerita.txt"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mNameError[0mTraceback (most recent call last)
+[0;32m<ipython-input-23-c0fa43a17415>[0m in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m [0msentence_array[0m [0;34m=[0m [0msorted[0m[0;34m([0m[0;34m([0m[0;34m([0m[0mranks[0m[0;34m[[0m[0mi[0m[0;34m][0m[0;34m,[0m [0ms[0m[0;34m)[0m [0;32mfor[0m [0mi[0m[0;34m,[0m [0ms[0m [0;32min[0m [0menumerate[0m[0;34m([0m[0msentences_list[0m[0;34m)[0m[0;34m)[0m[0;34m,[0m [0mreverse[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0msentence_array[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0masarray[0m[0;34m([0m[0msentence_array[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
-[0;32m<ipython-input-8-e7d4572f7fb3>[0m in [0;36mreadDoc[0;34m(name)[0m
-[1;32m     13[0m [0;34m[0m[0m
-[1;32m     14[0m     [0;32mif[0m [0mchoice[0m [0;34m==[0m [0;36m1[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 15[0;31m         [0mf[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0mname[0m[0;34m,[0m [0;34m'r'[0m[0;34m,[0m [0mencoding[0m[0;34m=[0m[0;34m"utf8"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     16[0m         [0mdocument[0m [0;34m=[0m [0mf[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     17[0m         [0mf[0m[0;34m.[0m[0mclose[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'docBerita.txt'
+[0;31mNameError[0m: name 'np' is not defined
 

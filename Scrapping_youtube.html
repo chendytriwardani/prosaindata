@@ -388,16 +388,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-library-selenium">Menggunakan library selenium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-komen-menggunakan-api-dari-youtube">Data komen menggunakan API dari youtube</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-library-nltk-natural-language-toolkit">Menggunakan library NLTK (Natural Language Toolkit)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menginstal-indonlp">Menginstal indoNLP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import library</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Scrapping data youtube</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dapatkan-api-dan-id-video-dari-youtube">Dapatkan API dan ID video dari Youtube</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memasukkan-ke-dalam-data-frame">Memasukkan ke dalam Data Frame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steamming-data">Steamming data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-nilai-kosong">Cek nilai kosong</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hapus-nilai-kosong">Hapus nilai kosong</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-ke-ke-csv">Import ke ke csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berikan-bobot-kata-pada-masing-masing-topik">Berikan bobot kata pada masing-masing topik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berikan-bobot-topik-pada-masing-masing-dokumen">Berikan bobot topik pada masing-masing dokumen</a></li>
 </ul>
             </nav>
         </div>
@@ -411,29 +415,12 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="scrapping-data-youtube">
 <h1>Scrapping data YouTube<a class="headerlink" href="#scrapping-data-youtube" title="Permalink to this heading">#</a></h1>
-<div class="section" id="menggunakan-library-selenium">
-<h2>Menggunakan library selenium<a class="headerlink" href="#menggunakan-library-selenium" title="Permalink to this heading">#</a></h2>
-<p>Selenium digunakan untuk software untuk mengotomatisasi pengujian aplikasi web pada browser.
-Dalam hal ini, Selenium digunakan untuk menavigasi ke halaman browser yang mengarah pada youtube untuk diambil dalam</p>
+<div class="section" id="data-komen-menggunakan-api-dari-youtube">
+<h2>Data komen menggunakan API dari youtube<a class="headerlink" href="#data-komen-menggunakan-api-dari-youtube" title="Permalink to this heading">#</a></h2>
+<p>Untuk mendapatkan data komentar dari youtube, kita perlu menggunakan api untuk mempermudah mendapat data koment dari youtube. Didalamnya kita bisa mendapatkan berbagai macam data yang dapat diambil mulai dari akun yang melakukan komentar, waktu komen dll.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>selenium<span class="w"> </span>--quiet
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/6.6 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.5/6.6 MB</span> <span class=" -Color -Color-Red">136.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">6.5/6.6 MB</span> <span class=" -Color -Color-Red">126.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">6.6/6.6 MB</span> <span class=" -Color -Color-Red">86.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/384.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">384.9/384.9 kB</span> <span class=" -Color -Color-Red">34.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/58.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">58.3/58.3 kB</span> <span class=" -Color -Color-Red">7.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>emoji<span class="w"> </span>indoNLP<span class="w"> </span>--quiet
 </pre></div>
 </div>
 </div>
@@ -470,30 +457,50 @@ Requirement already satisfied: tqdm in /usr/local/lib/python3.10/dist-packages (
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Collecting indoNLP
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading indoNLP-0.3.4-py3-none-any.whl (121 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/121.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">121.9/121.9 kB</span> <span class=" -Color -Color-Red">13.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: indoNLP
-Successfully installed indoNLP-0.3.4
+Requirement already satisfied: indoNLP in /usr/local/lib/python3.10/dist-packages (0.3.4)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver</span> <span class="kn">import</span> <span class="n">Chrome</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import time</span>
+<span class="c1"># from selenium import webdriver</span>
+<span class="c1"># from selenium.webdriver import Chrome</span>
+<span class="c1"># from selenium.webdriver.common.by import By</span>
+<span class="c1"># from selenium.webdriver.common.keys import Keys</span>
+<span class="c1"># from selenium.webdriver.support.ui import WebDriverWait</span>
+<span class="c1"># from selenium.webdriver.support import expected_conditions as EC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-library">
+<h2>Import library<a class="headerlink" href="#import-library" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">googleapiclient.discovery</span> <span class="kn">import</span> <span class="n">build</span>
+
+<span class="kn">from</span> <span class="nn">indoNLP.preprocessing</span> <span class="kn">import</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">replace_word_elongation</span><span class="p">,</span> <span class="n">replace_slang</span><span class="p">,</span> <span class="n">remove_html</span><span class="p">,</span> <span class="n">remove_url</span>
+<span class="kn">import</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">emoji</span>
+
+
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">RegexpTokenizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="n">stopwords</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># ignore warnings</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -503,102 +510,171 @@ Successfully installed indoNLP-0.3.4
 <h2>Scrapping data youtube<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menyimpan data yang akan di crawling</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">video_comments</span><span class="p">(</span><span class="n">video_id</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
+	<span class="c1"># empty list for storing reply</span>
+	<span class="n">replies</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.youtube.com/watch?v=_HwJW5f5jFQ&amp;ab_channel=NajwaShihab&quot;</span>
+	<span class="c1"># creating youtube resource object</span>
+	<span class="n">youtube</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="s1">&#39;youtube&#39;</span><span class="p">,</span> <span class="s1">&#39;v3&#39;</span><span class="p">,</span> <span class="n">developerKey</span><span class="o">=</span><span class="n">api_key</span><span class="p">)</span>
 
-<span class="c1"># Menghubungkan driver local ke link youtube yang dituju</span>
-<span class="k">with</span> <span class="n">Chrome</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;C:\Program Files\chromedriver.exe&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">driver</span><span class="p">:</span>    
-    <span class="n">wait</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-    <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-        <span class="n">url</span><span class="p">)</span>
+	<span class="c1"># retrieve youtube video results</span>
+	<span class="n">video_response</span> <span class="o">=</span> <span class="n">youtube</span><span class="o">.</span><span class="n">commentThreads</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="s1">&#39;snippet,replies&#39;</span><span class="p">,</span> <span class="n">videoId</span><span class="o">=</span><span class="n">video_id</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
 
-    <span class="c1"># melakukan perulangan untuk scrolling data sebanyak 10 kali</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-        <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">visibility_of_element_located</span><span class="p">(</span>
-            <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">TAG_NAME</span><span class="p">,</span> <span class="s2">&quot;body&quot;</span><span class="p">)))</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">Keys</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+	<span class="c1"># iterate video response</span>
+	<span class="k">while</span> <span class="n">video_response</span><span class="p">:</span>
+		<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">video_response</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]:</span>
+			
+			<span class="c1"># Extracting comments ()</span>
+			<span class="n">published</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;topLevelComment&#39;</span><span class="p">][</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;publishedAt&#39;</span><span class="p">]</span>
+			<span class="n">user</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;topLevelComment&#39;</span><span class="p">][</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;authorDisplayName&#39;</span><span class="p">]</span>
+			<span class="n">comment</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;topLevelComment&#39;</span><span class="p">][</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;textDisplay&#39;</span><span class="p">]</span>
+			<span class="n">likeCount</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;topLevelComment&#39;</span><span class="p">][</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;likeCount&#39;</span><span class="p">]</span>
 
-    <span class="c1"># mencari elemen dengan tag content pada halaman youtube</span>
-    <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_all_elements_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s2">&quot;#content&quot;</span><span class="p">))):</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">comment</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+			<span class="n">replies</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">published</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">likeCount</span><span class="p">])</span>
+
+			<span class="n">replycount</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;totalReplyCount&#39;</span><span class="p">]</span>
+
+			<span class="c1"># if reply is there</span>
+			<span class="k">if</span> <span class="n">replycount</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+				<span class="c1"># iterate through all reply</span>
+				<span class="k">for</span> <span class="n">reply</span> <span class="ow">in</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;replies&#39;</span><span class="p">][</span><span class="s1">&#39;comments&#39;</span><span class="p">]:</span>
+					
+					<span class="c1"># Extract reply</span>
+					<span class="n">published</span> <span class="o">=</span> <span class="n">reply</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;publishedAt&#39;</span><span class="p">]</span>
+					<span class="n">user</span> <span class="o">=</span> <span class="n">reply</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;authorDisplayName&#39;</span><span class="p">]</span>
+					<span class="n">repl</span> <span class="o">=</span> <span class="n">reply</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;textDisplay&#39;</span><span class="p">]</span>
+					<span class="n">likeCount</span> <span class="o">=</span> <span class="n">reply</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;likeCount&#39;</span><span class="p">]</span>
+					
+					<span class="c1"># Store reply is list</span>
+					<span class="n">replies</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">published</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">repl</span><span class="p">,</span> <span class="n">likeCount</span><span class="p">])</span>
+
+		<span class="c1"># Again repeat</span>
+		<span class="k">if</span> <span class="s1">&#39;nextPageToken&#39;</span> <span class="ow">in</span> <span class="n">video_response</span><span class="p">:</span>
+			<span class="n">video_response</span> <span class="o">=</span> <span class="n">youtube</span><span class="o">.</span><span class="n">commentThreads</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span>
+					<span class="n">part</span> <span class="o">=</span> <span class="s1">&#39;snippet,replies&#39;</span><span class="p">,</span>
+					<span class="n">pageToken</span> <span class="o">=</span> <span class="n">video_response</span><span class="p">[</span><span class="s1">&#39;nextPageToken&#39;</span><span class="p">],</span> 
+					<span class="n">videoId</span> <span class="o">=</span> <span class="n">video_id</span>
+				<span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="k">break</span>
+	<span class="c1">#endwhile</span>
+	<span class="k">return</span> <span class="n">replies</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dapatkan-api-dan-id-video-dari-youtube">
+<h2>Dapatkan API dan ID video dari Youtube<a class="headerlink" href="#dapatkan-api-dan-id-video-dari-youtube" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">video_id</span> <span class="o">=</span> <span class="s1">&#39;_HwJW5f5jFQ&#39;</span>
+<span class="n">Api_key</span> <span class="o">=</span> <span class="s1">&#39;AIzaSyBZqJO_poUA57gg9UnaC9rZd_UdPHLl1fc&#39;</span>
+
+
+<span class="n">comments</span> <span class="o">=</span> <span class="n">video_comments</span><span class="p">(</span><span class="n">video_id</span><span class="p">,</span> <span class="n">Api_key</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-5-779b56b5af0f&gt;:7: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
-  with Chrome(executable_path=r&#39;C:\Program Files\chromedriver.exe&#39;) as driver:
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">WebDriverException</span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-5-779b56b5af0f&gt;</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Menghubungkan driver local ke link youtube yang dituju</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="k">with</span> <span class="n">Chrome</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;C:\Program Files\chromedriver.exe&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">driver</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">wait</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-7-d8901c5a5e84&gt;</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">comments</span> <span class="o">=</span> <span class="n">video_comments</span><span class="p">(</span><span class="n">video_id</span><span class="p">,</span> <span class="n">Api_key</span><span class="p">)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/selenium/webdriver/chrome/webdriver.py</span> in <span class="ni">__init__</span><span class="nt">(self, executable_path, port, options, service_args, desired_capabilities, service_log_path, chrome_options, service, keep_alive)</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span>         <span class="n">service</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">DriverFinder</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span> 
-<span class="ne">---&gt; </span><span class="mi">84</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span>             <span class="n">DesiredCapabilities</span><span class="o">.</span><span class="n">CHROME</span><span class="p">[</span><span class="s2">&quot;browserName&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span>             <span class="s2">&quot;goog&quot;</span><span class="p">,</span>
+<span class="nn">&lt;ipython-input-6-e579cf79444d&gt;</span> in <span class="ni">video_comments</span><span class="nt">(video_id, api_key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>                                         <span class="n">pageToken</span> <span class="o">=</span> <span class="n">video_response</span><span class="p">[</span><span class="s1">&#39;nextPageToken&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>                                         <span class="n">videoId</span> <span class="o">=</span> <span class="n">video_id</span>
+<span class="ne">---&gt; </span><span class="mi">45</span> 				<span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>                         <span class="k">break</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/selenium/webdriver/chromium/webdriver.py</span> in <span class="ni">__init__</span><span class="nt">(self, browser_name, vendor_prefix, port, options, service_args, desired_capabilities, service_log_path, service, keep_alive)</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span> 
-<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">104</span>             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span>                 <span class="n">command_executor</span><span class="o">=</span><span class="n">ChromiumRemoteConnection</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span>                     <span class="n">remote_server_addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">service_url</span><span class="p">,</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/googleapiclient/_helpers.py</span> in <span class="ni">positional_wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span>                 <span class="k">elif</span> <span class="n">positional_parameters_enforcement</span> <span class="o">==</span> <span class="n">POSITIONAL_WARNING</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>                     <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">130</span>             <span class="k">return</span> <span class="n">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span> 
+<span class="g g-Whitespace">    </span><span class="mi">132</span>         <span class="k">return</span> <span class="n">positional_wrapper</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/selenium/webdriver/remote/webdriver.py</span> in <span class="ni">__init__</span><span class="nt">(self, command_executor, desired_capabilities, browser_profile, proxy, keep_alive, file_detector, options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">284</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_authenticator_id</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">285</span>         <span class="bp">self</span><span class="o">.</span><span class="n">start_client</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">286</span>         <span class="bp">self</span><span class="o">.</span><span class="n">start_session</span><span class="p">(</span><span class="n">capabilities</span><span class="p">,</span> <span class="n">browser_profile</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">287</span> 
-<span class="g g-Whitespace">    </span><span class="mi">288</span>     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/googleapiclient/http.py</span> in <span class="ni">execute</span><span class="nt">(self, http, num_retries)</span>
+<span class="g g-Whitespace">    </span><span class="mi">921</span> 
+<span class="g g-Whitespace">    </span><span class="mi">922</span>         <span class="c1"># Handle retries for server-side errors.</span>
+<span class="ne">--&gt; </span><span class="mi">923</span>         <span class="n">resp</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">_retry_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">924</span>             <span class="n">http</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">925</span>             <span class="n">num_retries</span><span class="p">,</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/selenium/webdriver/remote/webdriver.py</span> in <span class="ni">start_session</span><span class="nt">(self, capabilities, browser_profile)</span>
-<span class="g g-Whitespace">    </span><span class="mi">376</span>         <span class="n">w3c_caps</span> <span class="o">=</span> <span class="n">_make_w3c_caps</span><span class="p">(</span><span class="n">capabilities</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">377</span>         <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;capabilities&quot;</span><span class="p">:</span> <span class="n">w3c_caps</span><span class="p">}</span>
-<span class="ne">--&gt; </span><span class="mi">378</span>         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">Command</span><span class="o">.</span><span class="n">NEW_SESSION</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">379</span>         <span class="k">if</span> <span class="s2">&quot;sessionId&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">380</span>             <span class="n">response</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/googleapiclient/http.py</span> in <span class="ni">_retry_request</span><span class="nt">(http, num_retries, req_type, sleep, rand, uri, method, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span>             <span class="n">exception</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">191</span>             <span class="n">resp</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span>         <span class="c1"># Retry on SSL errors and socket timeout errors.</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="k">except</span> <span class="n">_ssl_SSLError</span> <span class="k">as</span> <span class="n">ssl_error</span><span class="p">:</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/selenium/webdriver/remote/webdriver.py</span> in <span class="ni">execute</span><span class="nt">(self, driver_command, params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span>         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_executor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">driver_command</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span>         <span class="k">if</span> <span class="n">response</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">440</span>             <span class="bp">self</span><span class="o">.</span><span class="n">error_handler</span><span class="o">.</span><span class="n">check_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span>             <span class="n">response</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unwrap_value</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span>             <span class="k">return</span> <span class="n">response</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/httplib2/__init__.py</span> in <span class="ni">request</span><span class="nt">(self, uri, method, body, headers, redirections, connection_type)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1718</span>                     <span class="n">content</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1719</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1720</span>                     <span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1721</span>                         <span class="n">conn</span><span class="p">,</span> <span class="n">authority</span><span class="p">,</span> <span class="n">uri</span><span class="p">,</span> <span class="n">request_uri</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">redirections</span><span class="p">,</span> <span class="n">cachekey</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1722</span>                     <span class="p">)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/selenium/webdriver/remote/errorhandler.py</span> in <span class="ni">check_response</span><span class="nt">(self, response)</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span>                 <span class="n">alert_text</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s2">&quot;alert&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>             <span class="k">raise</span> <span class="n">exception_class</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">screen</span><span class="p">,</span> <span class="n">stacktrace</span><span class="p">,</span> <span class="n">alert_text</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]  # mypy is not smart enough here</span>
-<span class="ne">--&gt; </span><span class="mi">245</span>         <span class="k">raise</span> <span class="n">exception_class</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">screen</span><span class="p">,</span> <span class="n">stacktrace</span><span class="p">)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/httplib2/__init__.py</span> in <span class="ni">_request</span><span class="nt">(self, conn, host, absolute_uri, request_uri, method, body, headers, redirections, cachekey)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1438</span>             <span class="n">auth</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">request_uri</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1439</span> 
+<span class="ne">-&gt; </span><span class="mi">1440</span>         <span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conn_request</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">request_uri</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1441</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1442</span>         <span class="k">if</span> <span class="n">auth</span><span class="p">:</span>
 
-<span class="ne">WebDriverException</span>: Message: unknown error: cannot find Chrome binary
-<span class="ne">Stacktrace</span>:
-<span class="c1">#0 0x55ad59f2c133 &lt;unknown&gt;</span>
-<span class="c1">#1 0x55ad59c60966 &lt;unknown&gt;</span>
-<span class="c1">#2 0x55ad59c87b57 &lt;unknown&gt;</span>
-<span class="c1">#3 0x55ad59c8607b &lt;unknown&gt;</span>
-<span class="c1">#4 0x55ad59cc59ad &lt;unknown&gt;</span>
-<span class="c1">#5 0x55ad59cc518f &lt;unknown&gt;</span>
-<span class="c1">#6 0x55ad59cbc9a3 &lt;unknown&gt;</span>
-<span class="c1">#7 0x55ad59c9146a &lt;unknown&gt;</span>
-<span class="c1">#8 0x55ad59c9255e &lt;unknown&gt;</span>
-<span class="c1">#9 0x55ad59eebcae &lt;unknown&gt;</span>
-<span class="c1">#10 0x55ad59eef8fe &lt;unknown&gt;</span>
-<span class="c1">#11 0x55ad59ef8f20 &lt;unknown&gt;</span>
-<span class="c1">#12 0x55ad59ef0923 &lt;unknown&gt;</span>
-<span class="c1">#13 0x55ad59ec3c0e &lt;unknown&gt;</span>
-<span class="c1">#14 0x55ad59f13b08 &lt;unknown&gt;</span>
-<span class="c1">#15 0x55ad59f13c97 &lt;unknown&gt;</span>
-<span class="c1">#16 0x55ad59f24113 &lt;unknown&gt;</span>
-<span class="c1">#17 0x7f0252992609 start_thread</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/httplib2/__init__.py</span> in <span class="ni">_conn_request</span><span class="nt">(self, conn, request_uri, method, body, headers)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1390</span>                 <span class="k">pass</span>
+<span class="g g-Whitespace">   </span><span class="mi">1391</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1392</span>                 <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1393</span>             <span class="k">except</span> <span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">BadStatusLine</span><span class="p">,</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">ResponseNotReady</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1394</span>                 <span class="c1"># If we get a BadStatusLine on the first try then that means</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1374</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1375</span>                 <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1376</span>             <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1377</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span>         <span class="c1"># read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">318</span>             <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span>             <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span>                 <span class="k">break</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span> 
+<span class="g g-Whitespace">    </span><span class="mi">278</span>     <span class="k">def</span> <span class="nf">_read_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">279</span>         <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span>             <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;status line&quot;</span><span class="p">)</span>
+
+<span class="nn">/usr/lib/python3.10/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">705</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>             <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1272</span>                   <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+<span class="g g-Whitespace">   </span><span class="mi">1273</span>                   <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1274</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1275</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1276</span>             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1128</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span>             <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1130</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1132</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -608,14 +684,18 @@ Successfully installed indoNLP-0.3.4
 <h2>Memasukkan ke dalam Data Frame<a class="headerlink" href="#memasukkan-ke-dalam-data-frame" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>   
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;komentar&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">comments</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;publishedAt&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;comment&#39;</span><span class="p">,</span> <span class="s1">&#39;likeCount&#39;</span><span class="p">])</span>
+
 <span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-5be00e8c-1a7b-4364-996f-174d04bf0915">
+    <div class="colab-df-container">
+      <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -633,58 +713,170 @@ Successfully installed indoNLP-0.3.4
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>komentar</th>
+      <th>publishedAt</th>
+      <th>user</th>
+      <th>comment</th>
+      <th>likeCount</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>ID\nSkip navigation\nSign in\n0:00 / 1:15:25\n...</td>
+      <td>2023-06-02T09:58:39Z</td>
+      <td>Kamal Yusuf</td>
+      <td>Sebaiknya Bacawapres Bapak Ganjar Pranowo bera...</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td></td>
+      <td>2023-06-02T00:56:09Z</td>
+      <td>Oemar Husain</td>
+      <td>Knpa gue gk tertarik ma ni orang</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Wawancara bagus dan fair. Dinamika masih akan ...</td>
+      <td>2023-06-01T15:39:36Z</td>
+      <td>akhiri yanto</td>
+      <td>&lt;b&gt;PETUGAS PARTAI&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Menurut paham ...</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Dari Manado Renjana Tour pernah 3 hr full bers...</td>
+      <td>2023-06-01T11:01:38Z</td>
+      <td>Kamal Yusuf</td>
+      <td>Apabila Bapak Ganjar Pranowo menjadi pemimpin ...</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rasanya Pak Ganjar ini upgrade dari Jokowi. (S...</td>
+      <td>2023-06-01T07:55:09Z</td>
+      <td>M. Maulana Muhson</td>
+      <td>Aslinya pak ganjar masih menjadi gubernur jate...</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>144</th>
-      <td></td>
+      <th>10572</th>
+      <td>2023-04-23T06:08:09Z</td>
+      <td>Olive</td>
+      <td>Halaaah. Timbang si Yaman, kampanye ke mana² b...</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>145</th>
-      <td></td>
+      <th>10573</th>
+      <td>2023-04-23T06:01:08Z</td>
+      <td>CAH NDESO NEWS</td>
+      <td>Gaaasssss 2024</td>
+      <td>3</td>
     </tr>
     <tr>
-      <th>146</th>
-      <td></td>
+      <th>10574</th>
+      <td>2023-04-23T06:00:59Z</td>
+      <td>BUZZTRUCK</td>
+      <td>Masih sepi</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>147</th>
-      <td></td>
+      <th>10575</th>
+      <td>2023-04-23T06:11:39Z</td>
+      <td>Mulyadi</td>
+      <td>Soalnya lagi makan ketupat...&lt;br&gt;Katanya malas...</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>148</th>
-      <td></td>
+      <th>10576</th>
+      <td>2023-04-23T06:00:53Z</td>
+      <td>Yoseph Felix channel</td>
+      <td>Luar biasa</td>
+      <td>26</td>
     </tr>
   </tbody>
 </table>
-<p>149 rows × 1 columns</p>
-</div></div></div>
+<p>10577 rows × 4 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-5be00e8c-1a7b-4364-996f-174d04bf0915')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-5be00e8c-1a7b-4364-996f-174d04bf0915 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-5be00e8c-1a7b-4364-996f-174d04bf0915');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
 </div>
 </div>
 <div class="section" id="cleaning-data">
@@ -692,46 +884,33 @@ Successfully installed indoNLP-0.3.4
 <p>Memproses data kata yang tidak digunakan</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">string</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># Teks Cleaning</span>
-
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Text Cleaning</span>
 <span class="k">def</span> <span class="nf">cleaning</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="c1"># Menghilangkan tag bawaan HTML</span>
+    <span class="c1"># HTML Tag Removal</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;&lt;.*?&gt;|&amp;([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
 
-    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
-        <span class="s1">&#39;&lt;.*?&gt;|&amp;([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
-
-    <span class="c1"># mengubah defaukt teks ke huruf kecil</span>
+    <span class="c1"># Case folding</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
-    <span class="c1"># menghapus karakter kosong di depan dan belakang teks</span>
+    <span class="c1"># Trim text</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
-    <span class="c1"># menghapus tanda baca, karakter spesial, dan spasi ganda</span>
+    <span class="c1"># Remove punctuations, karakter spesial, and spasi ganda</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;&lt;.*?&gt;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%s</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
-    <span class="c1"># menghapus teks yang berisi angka</span>
+    <span class="c1"># Number removal</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\[[0-9]*\]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-
-    <span class="c1"># Mengubah text &#39;nan&#39; dengan whitespace agar nantinya dapat dihapus</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-
-    <span class="c1"># Menghapus bawaan teks youtube</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;skip&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;navigation&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;sign&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">emoji</span><span class="o">.</span><span class="n">replace_emoji</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">text</span>
+
+
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">([</span><span class="n">replace_word_elongation</span><span class="p">,</span> <span class="n">replace_slang</span><span class="p">,</span> <span class="n">remove_html</span><span class="p">,</span> <span class="n">remove_url</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -742,23 +921,10 @@ Successfully installed indoNLP-0.3.4
 <p>Mengambil kata dasar</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import </span>
-<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
-<span class="kn">from</span> <span class="nn">indoNLP.preprocessing</span> <span class="kn">import</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">replace_word_elongation</span><span class="p">,</span> <span class="n">replace_slang</span><span class="p">,</span> <span class="n">emoji_to_words</span><span class="p">,</span> <span class="n">remove_html</span>
-<span class="n">pipe</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">([</span><span class="n">replace_word_elongation</span><span class="p">,</span> <span class="n">replace_slang</span><span class="p">,</span>
-                <span class="n">emoji_to_words</span><span class="p">,</span> <span class="n">remove_html</span><span class="p">])</span>
-<span class="c1"># steamming</span>
-<span class="n">ps</span> <span class="o">=</span> <span class="n">PorterStemmer</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hasil komentar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;komentar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pipe</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;hasil komentar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;hasil komentar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cleaning</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment (clean)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pipe</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment (clean)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment (clean)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cleaning</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="c1"># ubah empty string menjadi NaN</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;hasil komentar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;hasil komentar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment (clean)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment (clean)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -773,8 +939,11 @@ Successfully installed indoNLP-0.3.4
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>komentar          0
-hasil komentar    8
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>publishedAt         0
+user                0
+comment             0
+likeCount           0
+comment (clean)    99
 dtype: int64
 </pre></div>
 </div>
@@ -792,12 +961,32 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>publishedAt        0
+user               0
+comment            0
+likeCount          0
+comment (clean)    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-e5a223db-e56f-47f5-8d54-b115c19b5ea0">
+    <div class="colab-df-container">
+      <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -815,70 +1004,182 @@ dtype: int64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>komentar</th>
-      <th>hasil komentar</th>
+      <th>publishedAt</th>
+      <th>user</th>
+      <th>comment</th>
+      <th>likeCount</th>
+      <th>comment (clean)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>ID\nSkip navigation\nSign in\n0:00 / 1:15:25\n...</td>
-      <td>ini live eksklusif ganjar pranowo bicara c...</td>
+      <td>2023-06-02T09:58:39Z</td>
+      <td>Kamal Yusuf</td>
+      <td>Sebaiknya Bacawapres Bapak Ganjar Pranowo bera...</td>
+      <td>0</td>
+      <td>sebaiknya bacawapres bapak ganjar pranowo bera...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2023-06-02T00:56:09Z</td>
+      <td>Oemar Husain</td>
+      <td>Knpa gue gk tertarik ma ni orang</td>
+      <td>0</td>
+      <td>kenapa gue enggak tertarik sama nih orang</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Wawancara bagus dan fair. Dinamika masih akan ...</td>
-      <td>wawancara bagus dan fair dinamika masih akan t...</td>
+      <td>2023-06-01T15:39:36Z</td>
+      <td>akhiri yanto</td>
+      <td>&lt;b&gt;PETUGAS PARTAI&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Menurut paham ...</td>
+      <td>0</td>
+      <td>petugas partaimenurut paham negara demokrasi m...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Dari Manado Renjana Tour pernah 3 hr full bers...</td>
-      <td>dari manado renjana tour pernah hari ful bersa...</td>
+      <td>2023-06-01T11:01:38Z</td>
+      <td>Kamal Yusuf</td>
+      <td>Apabila Bapak Ganjar Pranowo menjadi pemimpin ...</td>
+      <td>0</td>
+      <td>apabila bapak ganjar pranowo menjadi pemimpin ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rasanya Pak Ganjar ini upgrade dari Jokowi. (S...</td>
-      <td>rasanya pak ganjar ini upgrade dari jokowi sem...</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Pak Ganjar memang oke  \nApapun pertanyaan yg ...</td>
-      <td>pak ganjar memang oke apapun pertanyaan yang d...</td>
+      <td>2023-06-01T07:55:09Z</td>
+      <td>M. Maulana Muhson</td>
+      <td>Aslinya pak ganjar masih menjadi gubernur jate...</td>
+      <td>0</td>
+      <td>aslinya pak ganjar masih menjadi gubernur jate...</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>137</th>
-      <td>Alhamdulillah Pak Ganjar ,, semoga di berikan ...</td>
-      <td>alhamdulillah pak ganjar semoga di berikan kes...</td>
+      <th>10572</th>
+      <td>2023-04-23T06:08:09Z</td>
+      <td>Olive</td>
+      <td>Halaaah. Timbang si Yaman, kampanye ke mana² b...</td>
+      <td>1</td>
+      <td>halaaah timbang sih yaman kampanye ke mana² be...</td>
     </tr>
     <tr>
-      <th>138</th>
-      <td>Masya allah cerdas banget sih Pak…,saya cerna ...</td>
-      <td>masya allah cerdas banget sih pak saya cerna j...</td>
+      <th>10573</th>
+      <td>2023-04-23T06:01:08Z</td>
+      <td>CAH NDESO NEWS</td>
+      <td>Gaaasssss 2024</td>
+      <td>3</td>
+      <td>gaaas</td>
     </tr>
     <tr>
-      <th>139</th>
-      <td>Sy bingung ngga nemu konsep dy bngun negara .....</td>
-      <td>saya bingung enggak nemu konsep dia bangun neg...</td>
+      <th>10574</th>
+      <td>2023-04-23T06:00:59Z</td>
+      <td>BUZZTRUCK</td>
+      <td>Masih sepi</td>
+      <td>1</td>
+      <td>masih sepi</td>
     </tr>
     <tr>
-      <th>140</th>
-      <td>Cerdas nya pak ganjar mudah2an bisa melebihi p...</td>
-      <td>cerdas nya pak ganjar mudah mudahan bisa meleb...</td>
+      <th>10575</th>
+      <td>2023-04-23T06:11:39Z</td>
+      <td>Mulyadi</td>
+      <td>Soalnya lagi makan ketupat...&lt;br&gt;Katanya malas...</td>
+      <td>0</td>
+      <td>soalnya lagi makan ketupat katanya malas ah so...</td>
     </tr>
     <tr>
-      <th>141</th>
-      <td>Pak ganjar presiden Palestina aja !</td>
-      <td>pak ganjar presen palestina saja</td>
+      <th>10576</th>
+      <td>2023-04-23T06:00:53Z</td>
+      <td>Yoseph Felix channel</td>
+      <td>Luar biasa</td>
+      <td>26</td>
+      <td>luar biasa</td>
     </tr>
   </tbody>
 </table>
-<p>141 rows × 2 columns</p>
-</div></div></div>
+<p>10478 rows × 5 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-e5a223db-e56f-47f5-8d54-b115c19b5ea0')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-e5a223db-e56f-47f5-8d54-b115c19b5ea0 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-e5a223db-e56f-47f5-8d54-b115c19b5ea0');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
 </div>
 </div>
 <div class="section" id="import-ke-ke-csv">
@@ -886,7 +1187,516 @@ dtype: int64
 <p>Setelah mendapatkan hasilnya ubah ke dalam bentuk csv</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;scrapping_youtube.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(&quot;/content/drive&quot;, force_remount=True).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;/content/Comments_Data.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/Comments_Data.csv&#39;</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-086ccc56-d726-46a1-b789-133e009a57dd">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>publishedAt</th>
+      <th>user</th>
+      <th>comment</th>
+      <th>likeCount</th>
+      <th>comment (clean)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2023-06-02T09:58:39Z</td>
+      <td>Kamal Yusuf</td>
+      <td>Sebaiknya Bacawapres Bapak Ganjar Pranowo bera...</td>
+      <td>0.0</td>
+      <td>sebaiknya bacawapres bapak ganjar pranowo bera...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2023-06-02T00:56:09Z</td>
+      <td>Oemar Husain</td>
+      <td>Knpa gue gk tertarik ma ni orang</td>
+      <td>0.0</td>
+      <td>kenapa gue enggak tertarik sama nih orang</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2023-06-01T15:39:36Z</td>
+      <td>akhiri yanto</td>
+      <td>&lt;b&gt;PETUGAS PARTAI&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Menurut paham ...</td>
+      <td>0.0</td>
+      <td>petugas partaimenurut paham negara demokrasi m...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2023-06-01T11:01:38Z</td>
+      <td>Kamal Yusuf</td>
+      <td>Apabila Bapak Ganjar Pranowo menjadi pemimpin ...</td>
+      <td>0.0</td>
+      <td>apabila bapak ganjar pranowo menjadi pemimpin ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2023-06-01T07:55:09Z</td>
+      <td>M. Maulana Muhson</td>
+      <td>Aslinya pak ganjar masih menjadi gubernur jate...</td>
+      <td>0.0</td>
+      <td>aslinya pak ganjar masih menjadi gubernur jate...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>10494</th>
+      <td>2023-04-23T06:08:09Z</td>
+      <td>Olive</td>
+      <td>Halaaah. Timbang si Yaman, kampanye ke mana² b...</td>
+      <td>1.0</td>
+      <td>halaaah timbang sih yaman kampanye ke mana² be...</td>
+    </tr>
+    <tr>
+      <th>10495</th>
+      <td>2023-04-23T06:01:08Z</td>
+      <td>CAH NDESO NEWS</td>
+      <td>Gaaasssss 2024</td>
+      <td>3.0</td>
+      <td>gaaas</td>
+    </tr>
+    <tr>
+      <th>10496</th>
+      <td>2023-04-23T06:00:59Z</td>
+      <td>BUZZTRUCK</td>
+      <td>Masih sepi</td>
+      <td>1.0</td>
+      <td>masih sepi</td>
+    </tr>
+    <tr>
+      <th>10497</th>
+      <td>2023-04-23T06:11:39Z</td>
+      <td>Mulyadi</td>
+      <td>Soalnya lagi makan ketupat...&lt;br&gt;Katanya malas...</td>
+      <td>0.0</td>
+      <td>soalnya lagi makan ketupat katanya malas ah so...</td>
+    </tr>
+    <tr>
+      <th>10498</th>
+      <td>2023-04-23T06:00:53Z</td>
+      <td>Yoseph Felix channel</td>
+      <td>Luar biasa</td>
+      <td>26.0</td>
+      <td>luar biasa</td>
+    </tr>
+  </tbody>
+</table>
+<p>10499 rows × 5 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-086ccc56-d726-46a1-b789-133e009a57dd')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-086ccc56-d726-46a1-b789-133e009a57dd button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-086ccc56-d726-46a1-b789-133e009a57dd');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment (clean)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membentuk matriks dokumen x kata</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">RegexpTokenizer</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+&#39;</span><span class="p">)</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">stop_words</span><span class="o">=</span><span class="n">stopwords</span><span class="p">,</span>
+                        <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">)</span>
+
+<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment (clean)&#39;</span><span class="p">])</span> 
+
+<span class="c1"># Melakukan dekomposisi matriks dengan SVD</span>
+<span class="n">svd_model</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">lsa_matrix</span> <span class="o">=</span> <span class="n">svd_model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="berikan-bobot-kata-pada-masing-masing-topik">
+<h2>Berikan bobot kata pada masing-masing topik<a class="headerlink" href="#berikan-bobot-kata-pada-masing-masing-topik" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bobot kata terhadap masing masing topik</span>
+<span class="n">terms</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">component</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">svd_model</span><span class="o">.</span><span class="n">components_</span><span class="p">):</span>
+    <span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">component</span><span class="p">)</span>
+    <span class="n">top_terms_key</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">zipped</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Topic &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;: &quot;</span><span class="p">,</span><span class="n">top_terms_key</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic 0:  [(&#39;ganjar&#39;, 0.7753927696143593), (&#39;presiden&#39;, 0.26053510510489974), (&#39;ri&#39;, 0.20229273069550835)]
+Topic 1:  [(&#39;partai&#39;, 0.7116812695919013), (&#39;petugas&#39;, 0.583256207396635), (&#39;rakyat&#39;, 0.10229906277841277)]
+Topic 2:  [(&#39;presiden&#39;, 0.5192154157718281), (&#39;prabowo&#39;, 0.46844031240139905), (&#39;anies&#39;, 0.18758521093211838)]
+Topic 3:  [(&#39;ri&#39;, 0.47400799551175565), (&#39;presiden&#39;, 0.43317755634821264), (&#39;pranowo&#39;, 0.17340817984299473)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="berikan-bobot-topik-pada-masing-masing-dokumen">
+<h2>Berikan bobot topik pada masing-masing dokumen<a class="headerlink" href="#berikan-bobot-topik-pada-masing-masing-dokumen" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bobot setiap topik terhadap  dokumen</span>
+<span class="n">df_lsa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lsa_matrix</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Topik 0&quot;</span><span class="p">,</span> <span class="s2">&quot;Topik 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Topik 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Topik 3&quot;</span><span class="p">])</span>
+<span class="n">df_lsa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;comment (clean)&quot;</span><span class="p">],</span> <span class="n">df_lsa</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_lsa</span><span class="p">[</span><span class="s1">&#39;Topik&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">df_lsa</span><span class="p">[[</span><span class="s1">&#39;Topik 0&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">argmax</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df_lsa</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-7fe57af7-a94e-425a-baf4-a82ed2c49115">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>comment (clean)</th>
+      <th>Topik 0</th>
+      <th>Topik 1</th>
+      <th>Topik 2</th>
+      <th>Topik 3</th>
+      <th>Topik</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>sebaiknya bacawapres bapak ganjar pranowo bera...</td>
+      <td>1.559279e-01</td>
+      <td>-4.727330e-02</td>
+      <td>-3.513604e-02</td>
+      <td>2.320549e-02</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>kenapa gue enggak tertarik sama nih orang</td>
+      <td>2.674689e-02</td>
+      <td>1.196918e-02</td>
+      <td>1.919385e-02</td>
+      <td>-2.563696e-02</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>petugas partaimenurut paham negara demokrasi m...</td>
+      <td>1.207230e-01</td>
+      <td>2.585382e-01</td>
+      <td>3.069129e-02</td>
+      <td>-2.252631e-03</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>apabila bapak ganjar pranowo menjadi pemimpin ...</td>
+      <td>1.947403e-01</td>
+      <td>-2.327173e-02</td>
+      <td>3.542895e-02</td>
+      <td>3.599127e-02</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>aslinya pak ganjar masih menjadi gubernur jate...</td>
+      <td>8.571505e-02</td>
+      <td>6.145721e-03</td>
+      <td>5.059285e-02</td>
+      <td>2.357836e-02</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>10494</th>
+      <td>halaaah timbang sih yaman kampanye ke mana² be...</td>
+      <td>7.656482e-03</td>
+      <td>4.597682e-03</td>
+      <td>1.203065e-02</td>
+      <td>-1.419255e-02</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>10495</th>
+      <td>gaaas</td>
+      <td>1.246273e-14</td>
+      <td>-8.421682e-13</td>
+      <td>-4.967756e-12</td>
+      <td>1.009319e-11</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>10496</th>
+      <td>masih sepi</td>
+      <td>2.305728e-04</td>
+      <td>1.189862e-04</td>
+      <td>3.445038e-04</td>
+      <td>-4.132306e-04</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>10497</th>
+      <td>soalnya lagi makan ketupat katanya malas ah so...</td>
+      <td>2.731007e-03</td>
+      <td>3.552052e-03</td>
+      <td>3.053887e-03</td>
+      <td>-3.973749e-03</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10498</th>
+      <td>luar biasa</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>10499 rows × 6 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7fe57af7-a94e-425a-baf4-a82ed2c49115')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-7fe57af7-a94e-425a-baf4-a82ed2c49115 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-7fe57af7-a94e-425a-baf4-a82ed2c49115');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_lsa</span><span class="p">[</span><span class="s1">&#39;Topik&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    6448
+2    2494
+1    1401
+3     156
+Name: Topik, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -961,16 +1771,20 @@ dtype: int64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-library-selenium">Menggunakan library selenium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-komen-menggunakan-api-dari-youtube">Data komen menggunakan API dari youtube</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-library-nltk-natural-language-toolkit">Menggunakan library NLTK (Natural Language Toolkit)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menginstal-indonlp">Menginstal indoNLP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import library</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Scrapping data youtube</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dapatkan-api-dan-id-video-dari-youtube">Dapatkan API dan ID video dari Youtube</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memasukkan-ke-dalam-data-frame">Memasukkan ke dalam Data Frame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-data">Cleaning Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steamming-data">Steamming data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-nilai-kosong">Cek nilai kosong</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hapus-nilai-kosong">Hapus nilai kosong</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-ke-ke-csv">Import ke ke csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berikan-bobot-kata-pada-masing-masing-topik">Berikan bobot kata pada masing-masing topik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berikan-bobot-topik-pada-masing-masing-dokumen">Berikan bobot topik pada masing-masing dokumen</a></li>
 </ul>
   </nav></div>
 

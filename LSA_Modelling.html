@@ -418,14 +418,14 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="s1">&#39;https://raw.githubusercontent.com/chendytriwardani/Data/main/scrapping_youtube.csv&#39;</span><span class="p">)</span>
+    <span class="s1">&#39;https://raw.githubusercontent.com/chendytriwardani/Data/main/Comments_Data_yt.csv&#39;</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ae16725f-6bc6-480d-9755-28445d970602">
+  <div id="df-de02b2d4-b0f7-43d3-a9e3-fdbb4047be19">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -445,71 +445,107 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>komentar</th>
-      <th>hasil komentar</th>
+      <th>publishedAt</th>
+      <th>user</th>
+      <th>comment</th>
+      <th>likeCount</th>
+      <th>comment (clean)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>ID\nSkip navigation\nSign in\nLIVE: Eksklusif ...</td>
-      <td>ini live eksklusif ganjar pranowo bicara c...</td>
+      <td>2023-06-02T09:58:39Z</td>
+      <td>Kamal Yusuf</td>
+      <td>Sebaiknya Bacawapres Bapak Ganjar Pranowo bera...</td>
+      <td>0.0</td>
+      <td>sebaiknya bacawapres bapak ganjar pranowo bera...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Semoga dapat saling bersinergi,dan menerima ma...</td>
-      <td>semoga dapat saling bersinergi dan menerima ma...</td>
+      <td>2023-06-02T00:56:09Z</td>
+      <td>Oemar Husain</td>
+      <td>Knpa gue gk tertarik ma ni orang</td>
+      <td>0.0</td>
+      <td>kenapa gue enggak tertarik sama nih orang</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Kami dari NTT siap mendukung Bapak Ganjar Pran...</td>
-      <td>kami dari ti siap mendukung bapak ganjar prano...</td>
+      <td>2023-06-01T15:39:36Z</td>
+      <td>akhiri yanto</td>
+      <td>&lt;b&gt;PETUGAS PARTAI&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Menurut paham ...</td>
+      <td>0.0</td>
+      <td>petugas partaimenurut paham negara demokrasi m...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Mantappp dan berlanjut pak ganjar...walau kami...</td>
-      <td>mantap dan berlanjut pak ganjar walau kami sek...</td>
+      <td>2023-06-01T11:01:38Z</td>
+      <td>Kamal Yusuf</td>
+      <td>Apabila Bapak Ganjar Pranowo menjadi pemimpin ...</td>
+      <td>0.0</td>
+      <td>apabila bapak ganjar pranowo menjadi pemimpin ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Saya bangga jadi warga Semarang dan rumah saya...</td>
-      <td>saya bangga jadi warga semarang dan rumah saya...</td>
+      <td>2023-06-01T07:55:09Z</td>
+      <td>M. Maulana Muhson</td>
+      <td>Aslinya pak ganjar masih menjadi gubernur jate...</td>
+      <td>0.0</td>
+      <td>aslinya pak ganjar masih menjadi gubernur jate...</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>1134</th>
-      <td>Mantap gw jd lagi dah milih lu pak, kemaren pi...</td>
-      <td>mantap gue jadi lagi deh memilih lu pak kemari...</td>
+      <th>10494</th>
+      <td>2023-04-23T06:08:09Z</td>
+      <td>Olive</td>
+      <td>Halaaah. Timbang si Yaman, kampanye ke mana² b...</td>
+      <td>1.0</td>
+      <td>halaaah timbang sih yaman kampanye ke mana² be...</td>
     </tr>
     <tr>
-      <th>1135</th>
+      <th>10495</th>
+      <td>2023-04-23T06:01:08Z</td>
+      <td>CAH NDESO NEWS</td>
+      <td>Gaaasssss 2024</td>
+      <td>3.0</td>
+      <td>gaaas</td>
+    </tr>
+    <tr>
+      <th>10496</th>
+      <td>2023-04-23T06:00:59Z</td>
+      <td>BUZZTRUCK</td>
+      <td>Masih sepi</td>
+      <td>1.0</td>
+      <td>masih sepi</td>
+    </tr>
+    <tr>
+      <th>10497</th>
+      <td>2023-04-23T06:11:39Z</td>
+      <td>Mulyadi</td>
+      <td>Soalnya lagi makan ketupat...&lt;br&gt;Katanya malas...</td>
+      <td>0.0</td>
+      <td>soalnya lagi makan ketupat katanya malas ah so...</td>
+    </tr>
+    <tr>
+      <th>10498</th>
+      <td>2023-04-23T06:00:53Z</td>
+      <td>Yoseph Felix channel</td>
       <td>Luar biasa</td>
+      <td>26.0</td>
       <td>luar biasa</td>
-    </tr>
-    <tr>
-      <th>1136</th>
-      <td>Saya sih pilih bak nana aja, bravo bak nana.. ...</td>
-      <td>saya sih pilih bak a saja bravo bak a najwasih...</td>
-    </tr>
-    <tr>
-      <th>1137</th>
-      <td>Sejak FPI dibubarkan, Indonesia lebih kondusif...</td>
-      <td>sejak fpi dibubarkan indonesia lebih kondusif ...</td>
-    </tr>
-    <tr>
-      <th>1138</th>
-      <td>Bismillah GANJAR PRANOWO RI 1</td>
-      <td>bismillah ganjar pranowo ri</td>
     </tr>
   </tbody>
 </table>
-<p>1139 rows × 2 columns</p>
+<p>10499 rows × 5 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-ae16725f-6bc6-480d-9755-28445d970602')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-de02b2d4-b0f7-43d3-a9e3-fdbb4047be19')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -560,12 +596,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-ae16725f-6bc6-480d-9755-28445d970602 button.colab-df-convert');
+          document.querySelector('#df-de02b2d4-b0f7-43d3-a9e3-fdbb4047be19 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-ae16725f-6bc6-480d-9755-28445d970602');
+          const element = document.querySelector('#df-de02b2d4-b0f7-43d3-a9e3-fdbb4047be19');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -606,6 +642,13 @@ document.write(`
 <h2>Tokenize<a class="headerlink" href="#tokenize" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment (clean)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">RegexpTokenizer</span>
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
@@ -619,7 +662,7 @@ document.write(`
                              <span class="n">stop_words</span><span class="o">=</span><span class="n">stopwords</span><span class="p">,</span>
                              <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">)</span>
 
-<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hasil komentar&#39;</span><span class="p">])</span>
+<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;comment (clean)&#39;</span><span class="p">])</span>
 
 <span class="c1"># Melakukan dekomposisi matriks dengan SVD</span>
 <span class="n">svd_model</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -644,10 +687,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic 0:  [(&#39;ganjar&#39;, 0.5830481827621967), (&#39;indonesia&#39;, 0.3328123427035958)]
-Topic 1:  [(&#39;indonesia&#39;, 0.6253434859542838), (&#39;bendera&#39;, 0.5265417773923751)]
-Topic 2:  [(&#39;partai&#39;, 0.6448469444447841), (&#39;petugas&#39;, 0.4129388185209595)]
-Topic 3:  [(&#39;semoga&#39;, 0.4024144461687851), (&#39;presen&#39;, 0.31942391226262623)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic 0:  [(&#39;ganjar&#39;, 0.7753935814433989), (&#39;presiden&#39;, 0.2605417171187532)]
+Topic 1:  [(&#39;partai&#39;, 0.7115755458028574), (&#39;petugas&#39;, 0.5831580051413797)]
+Topic 2:  [(&#39;presiden&#39;, 0.49933598612836616), (&#39;prabowo&#39;, 0.4754478334166995)]
+Topic 3:  [(&#39;ri&#39;, 0.48963062932637447), (&#39;presiden&#39;, 0.4342724432130376)]
 </pre></div>
 </div>
 </div>
@@ -660,7 +703,7 @@ Topic 3:  [(&#39;semoga&#39;, 0.4024144461687851), (&#39;presen&#39;, 0.31942391
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bobot setiap topik terhadap  dokumen</span>
 <span class="n">df_lsa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lsa_matrix</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
                       <span class="s2">&quot;Topik 0&quot;</span><span class="p">,</span> <span class="s2">&quot;Topik 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Topik 2&quot;</span><span class="p">,</span> <span class="s2">&quot;Topik 3&quot;</span><span class="p">])</span>
-<span class="n">df_lsa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;hasil komentar&quot;</span><span class="p">],</span> <span class="n">df_lsa</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_lsa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;comment (clean)&quot;</span><span class="p">],</span> <span class="n">df_lsa</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">df_lsa</span><span class="p">[</span><span class="s1">&#39;Topik&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_lsa</span><span class="p">[[</span><span class="s1">&#39;Topik 0&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
     <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">argmax</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
@@ -670,7 +713,7 @@ Topic 3:  [(&#39;semoga&#39;, 0.4024144461687851), (&#39;presen&#39;, 0.31942391
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f352a9f8-e1a4-49a2-ac9e-4cd3e187abad">
+  <div id="df-c5038194-50d6-40ad-a1ec-8a4706968ed0">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -690,7 +733,7 @@ Topic 3:  [(&#39;semoga&#39;, 0.4024144461687851), (&#39;presen&#39;, 0.31942391
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>hasil komentar</th>
+      <th>comment (clean)</th>
       <th>Topik 0</th>
       <th>Topik 1</th>
       <th>Topik 2</th>
@@ -701,47 +744,47 @@ Topic 3:  [(&#39;semoga&#39;, 0.4024144461687851), (&#39;presen&#39;, 0.31942391
   <tbody>
     <tr>
       <th>0</th>
-      <td>ini live eksklusif ganjar pranowo bicara c...</td>
-      <td>0.193851</td>
-      <td>-0.025419</td>
-      <td>0.053649</td>
-      <td>-0.017965</td>
+      <td>sebaiknya bacawapres bapak ganjar pranowo bera...</td>
+      <td>1.559192e-01</td>
+      <td>-4.743783e-02</td>
+      <td>-3.321821e-02</td>
+      <td>2.129039e-02</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>semoga dapat saling bersinergi dan menerima ma...</td>
-      <td>0.202419</td>
-      <td>0.085144</td>
-      <td>0.054022</td>
-      <td>0.115649</td>
+      <td>kenapa gue enggak tertarik sama nih orang</td>
+      <td>2.675291e-02</td>
+      <td>1.193354e-02</td>
+      <td>2.039838e-02</td>
+      <td>-2.422254e-02</td>
       <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>kami dari ti siap mendukung bapak ganjar prano...</td>
-      <td>0.160734</td>
-      <td>-0.032502</td>
-      <td>-0.040333</td>
-      <td>0.038530</td>
-      <td>0</td>
+      <td>petugas partaimenurut paham negara demokrasi m...</td>
+      <td>1.207163e-01</td>
+      <td>2.583351e-01</td>
+      <td>3.250841e-02</td>
+      <td>2.093476e-03</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>mantap dan berlanjut pak ganjar walau kami sek...</td>
-      <td>0.182645</td>
-      <td>0.065483</td>
-      <td>-0.036853</td>
-      <td>-0.014990</td>
+      <td>apabila bapak ganjar pranowo menjadi pemimpin ...</td>
+      <td>1.947169e-01</td>
+      <td>-2.358918e-02</td>
+      <td>3.959811e-02</td>
+      <td>4.142235e-02</td>
       <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>saya bangga jadi warga semarang dan rumah saya...</td>
-      <td>0.106636</td>
-      <td>-0.033509</td>
-      <td>0.021576</td>
-      <td>-0.022958</td>
+      <td>aslinya pak ganjar masih menjadi gubernur jate...</td>
+      <td>8.572207e-02</td>
+      <td>6.252284e-03</td>
+      <td>4.898279e-02</td>
+      <td>2.379144e-02</td>
       <td>0</td>
     </tr>
     <tr>
@@ -754,55 +797,55 @@ Topic 3:  [(&#39;semoga&#39;, 0.4024144461687851), (&#39;presen&#39;, 0.31942391
       <td>...</td>
     </tr>
     <tr>
-      <th>1134</th>
-      <td>mantap gue jadi lagi deh memilih lu pak kemari...</td>
-      <td>0.064726</td>
-      <td>-0.052623</td>
-      <td>0.032889</td>
-      <td>-0.027021</td>
-      <td>0</td>
+      <th>10494</th>
+      <td>halaaah timbang sih yaman kampanye ke mana² be...</td>
+      <td>7.656717e-03</td>
+      <td>4.583175e-03</td>
+      <td>1.244814e-02</td>
+      <td>-1.339310e-02</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>1135</th>
+      <th>10495</th>
+      <td>gaaas</td>
+      <td>4.405543e-14</td>
+      <td>4.777269e-13</td>
+      <td>-2.835260e-12</td>
+      <td>5.909593e-13</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>10496</th>
+      <td>masih sepi</td>
+      <td>2.309899e-04</td>
+      <td>1.184875e-04</td>
+      <td>3.971312e-04</td>
+      <td>-3.580472e-04</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>10497</th>
+      <td>soalnya lagi makan ketupat katanya malas ah so...</td>
+      <td>2.731841e-03</td>
+      <td>3.556972e-03</td>
+      <td>3.169614e-03</td>
+      <td>-3.943423e-03</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10498</th>
       <td>luar biasa</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1136</th>
-      <td>saya sih pilih bak a saja bravo bak a najwasih...</td>
-      <td>0.062395</td>
-      <td>-0.082950</td>
-      <td>-0.014572</td>
-      <td>-0.126880</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1137</th>
-      <td>sejak fpi dibubarkan indonesia lebih kondusif ...</td>
-      <td>0.186004</td>
-      <td>0.094608</td>
-      <td>0.034188</td>
-      <td>0.081376</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1138</th>
-      <td>bismillah ganjar pranowo ri</td>
-      <td>0.347383</td>
-      <td>-0.081071</td>
-      <td>-0.226534</td>
-      <td>0.158002</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
       <td>0</td>
     </tr>
   </tbody>
 </table>
-<p>1139 rows × 6 columns</p>
+<p>10499 rows × 6 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-f352a9f8-e1a4-49a2-ac9e-4cd3e187abad')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-c5038194-50d6-40ad-a1ec-8a4706968ed0')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -853,12 +896,12 @@ Topic 3:  [(&#39;semoga&#39;, 0.4024144461687851), (&#39;presen&#39;, 0.31942391
 
       <script>
         const buttonEl =
-          document.querySelector('#df-f352a9f8-e1a4-49a2-ac9e-4cd3e187abad button.colab-df-convert');
+          document.querySelector('#df-c5038194-50d6-40ad-a1ec-8a4706968ed0 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-f352a9f8-e1a4-49a2-ac9e-4cd3e187abad');
+          const element = document.querySelector('#df-c5038194-50d6-40ad-a1ec-8a4706968ed0');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -889,10 +932,10 @@ Topic 3:  [(&#39;semoga&#39;, 0.4024144461687851), (&#39;presen&#39;, 0.31942391
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    897
-2    150
-1     47
-3     45
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    6375
+2    2583
+1    1400
+3     141
 Name: Topik, dtype: int64
 </pre></div>
 </div>
